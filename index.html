@@ -11,6 +11,7 @@
                 font-family: 'Arial', sans-serif;
                 background-color: #0f0f0f;
                 color: #fff;
+                overflow-x: hidden; /* Evita la barra de desplazamiento horizontal */
             }
 
             nav {
@@ -18,7 +19,7 @@
                 top: 0;
                 width: 100%;
                 background-color: #1a1a1a;
-                padding: 15px 0;
+                padding: 10px 0; /* Reduje el padding vertical */
                 z-index: 1000;
                 display: flex;
                 justify-content: center;
@@ -27,17 +28,17 @@
             nav ul {
                 list-style: none;
                 display: flex;
-                flex-wrap: nowrap;
+                flex-wrap: wrap; /* Permite que los elementos del menú pasen a la siguiente línea en pantallas pequeñas */
                 justify-content: center;
                 align-items: center;
                 margin: 0;
                 padding: 0;
                 white-space: nowrap;
-                gap: 15px;
+                gap: 10px; /* Reduje el gap */
             }
 
             nav ul li {
-                margin: 0 20px;
+                margin: 0; /* Elimine el margen horizontal de los ítems de la lista */
             }
 
             nav ul li a {
@@ -47,394 +48,410 @@
                 text-transform: uppercase;
                 transition: color 0.3s;
                 white-space: nowrap;
-                font-size: 0.9em;
-                padding: 8px 12px;
+                font-size: 0.85em; /* Reduje el tamaño de la fuente */
+                padding: 6px 10px; /* Reduje el padding del enlace */
+                border-radius: 5px; /* Añadí un pequeño borde redondeado */
             }
 
             nav ul li a:hover {
                 color: #ff00cc;
             }
 
-                header {
-                    margin-top: 100px;
-                    text-align: center;
-                }
+            header {
+                margin-top: 70px; /* Ajusté el margen superior para que no quede debajo de la navegación */
+                text-align: center;
+                padding: 20px; /* Añadí un poco de padding al header */
+            }
 
-                header img {
-                    width: 200px;
-                    margin-bottom: 20px;
-                }
+            header img {
+                width: 150px; /* Reduje el tamaño del logo */
+                margin-bottom: 15px; /* Reduje el margen inferior del logo */
+            }
 
-                h1 {
-                    font-size: 2.5em;
-                    color: #ff4de3;
-                }
+            h1 {
+                font-size: 2em; /* Reduje el tamaño del título */
+                color: #ff4de3;
+                margin-bottom: 10px; /* Añadí un poco de margen inferior al título */
+            }
 
-                .main-content {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    width: 95%;
-                    max-width: 1200px;
-                    margin: 20px auto;
-                }
+            .main-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 95%;
+                max-width: 1200px;
+                margin: 20px auto;
+                padding: 0 10px; /* Añadí padding horizontal al contenedor principal */
+                box-sizing: border-box;
+            }
 
-                .inicio, .que-espera, .info-festi, .spotify-playlist {
-                    width: 100%;
-                    max-width: 1000px;
-                    margin-bottom: 30px;
-                    border-radius: 15px;
-                    padding: 20px;
-                    box-sizing: border-box;
-                    background-color: #1a1a1a; /* Añadido fondo a Spotify para consistencia */
-                    text-align: center; /* Centrar el contenido del iframe */
-                }
+            .inicio, .que-espera, .info-festi, .spotify-playlist {
+                width: 100%;
+                max-width: 1000px;
+                margin-bottom: 20px; /* Reduje el margen inferior de las secciones */
+                border-radius: 10px; /* Reduje el radio del borde */
+                padding: 15px; /* Reduje el padding de las secciones */
+                box-sizing: border-box;
+                background-color: #1a1a1a;
+                text-align: center;
+            }
 
-                .inicio {
-                    box-shadow: 0 0 15px #ff4de3aa;
-                    padding: 30px 20px;
-                }
+            .inicio {
+                box-shadow: 0 0 10px #ff4de3aa; /* Reduje el resplandor */
+                padding: 20px 15px; /* Ajusté el padding interno */
+            }
 
-                .inicio h2 {
-                    color: #b580ff;
-                }
+            .inicio h2 {
+                color: #b580ff;
+                font-size: 1.5em; /* Reduje el tamaño del subtítulo */
+                margin-bottom: 10px; /* Reduje el margen inferior del subtítulo */
+            }
 
-                .inicio p {
-                    font-size: 1.1em;
-                    line-height: 1.6;
-                    color: #ddd;
-                }
+            .inicio p {
+                font-size: 1em; /* Reduje el tamaño del párrafo */
+                line-height: 1.5; /* Ajusté el interlineado */
+                color: #ddd;
+                margin-bottom: 10px; /* Reduje el margen inferior del párrafo */
+            }
 
-                .inicio img {
-                    width: 100%;
-                    max-height: 400px;
-                    object-fit: cover;
-                    border-radius: 15px;
-                    margin-top: 20px;
-                }
+            .inicio img {
+                width: 100%;
+                max-height: 300px; /* Reduje la altura máxima de la imagen */
+                object-fit: cover;
+                border-radius: 10px; /* Igualé el radio del borde */
+                margin-top: 15px; /* Reduje el margen superior de la imagen */
+            }
 
-                ul {
-                    list-style: none;
-                    padding: 0;
-                    text-align: left;
-                    max-width: 600px;
-                    margin: 0 auto;
-                }
+            ul {
+                list-style: none;
+                padding: 0;
+                text-align: left;
+                max-width: 600px;
+                margin: 10px auto; /* Añadí un poco de margen superior */
+            }
 
-                ul li {
-                    margin: 10px 0;
-                    font-size: 1.05em;
-                }
+            ul li {
+                margin: 8px 0; /* Reduje el margen vertical de los ítems de la lista */
+                font-size: 1em; /* Reduje el tamaño de la fuente de la lista */
+            }
 
-                .cuenta {
-                    font-size: 1.3em;
-                    font-weight: bold;
-                    color: #ff4de3;
-                    margin-top: 15px;
-                    display: none;
-                }
+            .cuenta {
+                font-size: 1.2em; /* Reduje el tamaño de la fuente de la cuenta */
+                font-weight: bold;
+                color: #ff4de3;
+                margin-top: 10px; /* Reduje el margen superior de la cuenta */
+                display: none;
+            }
 
-                #activarSonido {
-                    position: fixed;
-                    bottom: 20px;
-                    right: 20px;
-                    background-color: #ff00cc;
-                    color: white;
-                    border: none;
-                    padding: 12px 20px;
-                    border-radius: 8px;
-                    font-size: 1em;
-                    cursor: pointer;
-                    box-shadow: 0 0 10px #ff00cc;
-                    z-index: 2000;
-                }
+            #activarSonido {
+                position: fixed;
+                bottom: 15px; /* Ajusté la posición inferior */
+                right: 15px; /* Ajusté la posición derecha */
+                background-color: #ff00cc;
+                color: white;
+                border: none;
+                padding: 10px 15px; /* Reduje el padding del botón */
+                border-radius: 8px;
+                font-size: 0.9em; /* Reduje el tamaño de la fuente del botón */
+                cursor: pointer;
+                box-shadow: 0 0 8px #ff00cc; /* Reduje el resplandor */
+                z-index: 2000;
+            }
 
-                .countdown-container {
-                    position: fixed;
-                    bottom: 80px;
-                    right: 15px;
-                    z-index: 9999;
-                }
+            .countdown-container {
+                position: fixed;
+                bottom: 60px; /* Ajusté la posición inferior */
+                right: 10px; /* Ajusté la posición derecha */
+                z-index: 9999;
+            }
 
-                .countdown-box {
-                    display: flex;
-                    background-color: #1a1a1a;
-                    border: 3px solid #ff4de3;
-                    border-radius: 15px;
-                    padding: 15px 20px;
-                    box-shadow: 0 0 15px #ff4de3aa;
-                    font-family: 'Courier New', monospace;
-                }
+            .countdown-box {
+                display: flex;
+                background-color: #1a1a1a;
+                border: 2px solid #ff4de3; /* Reduje el grosor del borde */
+                border-radius: 10px; /* Igualé el radio del borde */
+                padding: 10px 15px; /* Reduje el padding del contador */
+                box-shadow: 0 0 10px #ff4de3aa; /* Reduje el resplandor */
+                font-family: 'Courier New', monospace;
+            }
 
-                .countdown-box div {
-                    margin: 0 15px;
-                    text-align: center;
-                }
+            .countdown-box div {
+                margin: 0 10px; /* Reduje el margen horizontal de los elementos del contador */
+                text-align: center;
+            }
 
-                .countdown-box span {
-                    font-size: 2.5em;
-                    font-weight: bold;
-                    color: #ffffff;
-                    display: block;
-                }
+            .countdown-box span {
+                font-size: 2em; /* Reduje el tamaño de la fuente de los números */
+                font-weight: bold;
+                color: #ffffff;
+                display: block;
+            }
 
-                .countdown-box small {
-                    color: #ff4de3;
-                    font-size: 1em;
-                }
+            .countdown-box small {
+                color: #ff4de3;
+                font-size: 0.8em; /* Reduje el tamaño de la fuente de las etiquetas */
+            }
 
-                .que-espera {
-                    box-shadow: 0 0 15px #b580ffaa;
-                    padding: 20px;
-                    text-align: center;
-                }
+            .que-espera {
+                box-shadow: 0 0 10px #b580ffaa; /* Reduje el resplandor */
+                padding: 15px; /* Reduje el padding */
+                text-align: center;
+            }
 
-                .que-espera h3 {
-                    color: #ff4de3;
-                }
+            .que-espera h3 {
+                color: #ff4de3;
+                font-size: 1.3em; /* Reduje el tamaño del subtítulo */
+                margin-bottom: 10px; /* Reduje el margen inferior */
+            }
 
-                .que-espera ul {
-                    text-align: left;
-                }
+            .que-espera ul {
+                text-align: left;
+                margin-top: 10px; /* Añadí margen superior a la lista */
+            }
 
-                .info-festi {
-                    box-shadow: 0 0 15px #b580ffaa;
-                    padding: 30px 20px;
-                    text-align: center;
-                }
+            .info-festi {
+                box-shadow: 0 0 10px #b580ffaa; /* Reduje el resplandor */
+                padding: 20px 15px; /* Ajusté el padding */
+                text-align: center;
+            }
 
-                .info-festi h2 {
-                    color: #b580ff;
-                }
+            .info-festi h2 {
+                color: #b580ff;
+                font-size: 1.5em; /* Reduje el tamaño del subtítulo */
+                margin-bottom: 10px; /* Reduje el margen inferior */
+            }
 
-                .info-festi p {
-                    font-size: 1.1em;
-                    line-height: 1.6;
-                    color: #ddd;
-                }
+            .info-festi p {
+                font-size: 1em; /* Reduje el tamaño del párrafo */
+                line-height: 1.5; /* Ajusté el interlineado */
+                color: #ddd;
+            }
 
-                .social-media {
-                    text-align: center;
-                    margin-top: 20px;
-                    margin-bottom: 30px;
-                }
+            .social-media {
+                text-align: center;
+                margin-top: 15px; /* Reduje el margen superior */
+                margin-bottom: 20px; /* Reduje el margen inferior */
+            }
 
-                .social-media a {
-                    display: inline-block;
-                    margin: 0 10px;
-                }
+            .social-media a {
+                display: inline-block;
+                margin: 0 8px; /* Reduje el margen horizontal */
+            }
 
-                 .social-media img {
-                    width: 48px;
-                    height: 48px;
-                    vertical-align: middle;
-                 }
+            .social-media img {
+                width: 36px; /* Reduje el tamaño de los iconos */
+                height: 36px;
+                vertical-align: middle;
+            }
 
-        .faq-section {
-            background-color: #1a1a1a;
-            color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px #333;
-            width: 300px; /* Ancho del cuadro FAQ */
-            position: fixed;
-            bottom: 20px; /* Ajustado */
-            left: 20px;
-            z-index: 1001;
-            transform: translateX(-110%); /* Ocultar inicialmente */
-            transition: transform 0.3s ease-in-out;
-        }
+            .faq-section {
+                background-color: #1a1a1a;
+                color: #fff;
+                padding: 15px; /* Reduje el padding */
+                border-radius: 8px; /* Reduje el radio del borde */
+                box-shadow: 0 0 8px #333; /* Reduje el resplandor */
+                width: 80%; /* Ajusté el ancho para hácerlo más adaptable */
+                max-width: 300px; /* Mantengo un máximo ancho */
+                position: fixed;
+                bottom: 15px; /* Ajusté la posición */
+                left: 15px; /* Ajusté la posición */
+                z-index: 1001;
+                transform: translateX(-110%);
+                transition: transform 0.3s ease-in-out;
+                font-size: 0.9em; /* Reduje el tamaño de la fuente */
+            }
 
-        .faq-section.open {
-            transform: translateX(0); /* Mostrar al estar abierto */
-        }
+            .faq-section.open {
+                transform: translateX(0);
+            }
 
-        .faq-section h2 {
-            color: #ff4de3;
-            text-align: center;
-            margin-bottom: 15px;
-            font-size: 1.5em;
-        }
+            .faq-section h2 {
+                color: #ff4de3;
+                text-align: center;
+                margin-bottom: 10px; /* Reduje el margen inferior */
+                font-size: 1.3em; /* Reduje el tamaño del título */
+            }
 
-        .faq-item {
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-        }
+            .faq-item {
+                margin-bottom: 8px; /* Reduje el margen inferior */
+                padding-bottom: 8px; /* Reduje el padding inferior */
+            }
 
-        .faq-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-            margin-bottom: 0;
-        }
+            .faq-item:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+                margin-bottom: 0;
+            }
 
-        .faq-question {
-            background: none;
-            color: #ddd;
-            border: none;
-            padding: 8px 0;
-            font-size: 1em;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            text-align: left;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+            .faq-question {
+                background: none;
+                color: #ddd;
+                border: none;
+                padding: 6px 0; /* Reduje el padding vertical */
+                font-size: 0.9em; /* Reduje el tamaño de la fuente */
+                font-weight: bold;
+                cursor: pointer;
+                width: 100%;
+                text-align: left;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
 
-        .faq-question::before {
-            content: '?';
-            font-size: 1.2em;
-            margin-right: 10px;
-            color: #ff4de3;
-        }
+            .faq-question::before {
+                content: '?';
+                font-size: 1em; /* Reduje el tamaño del signo de pregunta */
+                margin-right: 8px; /* Reduje el margen derecho */
+                color: #ff4de3;
+            }
 
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            padding-top: 8px;
-            font-size: 0.9em;
-            line-height: 1.4;
-        }
+            .faq-answer {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+                padding-top: 6px; /* Reduje el padding superior */
+                font-size: 0.85em; /* Reduje el tamaño de la fuente */
+                line-height: 1.4;
+            }
 
-        .faq-question.active + .faq-answer {
-            max-height: 500px;
-            padding-bottom: 8px;
-        }
+            .faq-question.active + .faq-answer {
+                max-height: 500px;
+                padding-bottom: 6px; /* Reduje el padding inferior */
+            }
 
-        /* Botón FAQ fijo */
-        /* Botón FAQ fijo */
-        .faq-button {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background-color: #ff4de3;
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 2em; /* Aumentamos el tamaño del signo de pregunta */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            z-index: 1002;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-            line-height: 1; /* Ajustamos el espaciado de línea */
-        }
+            /* Botón FAQ fijo */
+            .faq-button {
+                position: fixed;
+                bottom: 15px; /* Ajusté la posición */
+                left: 15px; /* Ajusté la posición */
+                background-color: #ff4de3;
+                color: white;
+                border: none;
+                width: 40px; /* Reduje el tamaño del botón */
+                height: 40px; /* Reduje el tamaño del botón */
+                border-radius: 50%;
+                font-size: 1.5em; /* Reduje el tamaño del signo de pregunta */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                z-index: 1002;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Reduje la sombra */
+                line-height: 1;
+            }
 
-        /* Botón Trivia fijo */
-        .trivia-trigger-button {
-            position: fixed;
-            bottom: 80px; /* Ajustado para estar encima del FAQ */
-            left: 20px;
-            background-color: #b580ff;
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 1.5em;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            z-index: 1002;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        }
+            /* Botón Trivia fijo */
+            .trivia-trigger-button {
+                position: fixed;
+                bottom: 65px; /* Ajusté para estar encima del FAQ */
+                left: 15px; /* Ajusté la posición */
+                background-color: #b580ff;
+                color: white;
+                border: none;
+                width: 40px; /* Reduje el tamaño del botón */
+                height: 40px; /* Reduje el tamaño del botón */
+                border-radius: 50%;
+                font-size: 1.2em; /* Reduje el tamaño del icono */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                z-index: 1002;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Reduje la sombra */
+            }
 
-        .trivia-trigger-button .joystick-icon {
-            font-size: 1.5em;
-        }
+            .trivia-trigger-button .joystick-icon {
+                font-size: 1.2em; /* Reduje el tamaño del icono */
+            }
 
-        /* Estilos para la Trivia (inicialmente oculto y fijo) */
-        .trivia-section {
-            background-color: transparent; /* Fondo transparente inicialmente */
-            color: #eee;
-            border-radius: 10px;
-            padding: 15px;
-            text-align: center;
-            overflow: hidden;
-            max-height: 0;
-            transition: max-height 0.3s ease-out, background-color 0.3s ease-in-out; /* Transición también para el background-color */
-            width: 300px; /* Similar al FAQ */
-            position: fixed;
-            bottom: 140px; /* Ajustado para estar encima del botón trivia */
-            left: 20px;
-            z-index: 1001;
-        }
+            /* Estilos para la Trivia (inicialmente oculto y fijo) */
+            .trivia-section {
+                background-color: transparent; /* Fondo transparente inicialmente */
+                color: #eee;
+                border-radius: 8px; /* Reduje el radio del borde */
+                padding: 10px; /* Reduje el padding */
+                text-align: center;
+                overflow: hidden;
+                max-height: 0;
+                transition: max-height 0.3s ease-out, background-color 0.3s ease-in-out; /* Transición también para el background-color */
+                width: 80%; /* Ajusté el ancho */
+                max-width: 280px; /* Mantengo un máximo ancho */
+                position: fixed;
+                bottom: 115px; /* Ajustado para estar encima del botón trivia */
+                left: 15px; /* Ajusté la posición */
+                z-index: 1001;
+                font-size: 0.9em; /* Reduje el tamaño de la fuente */
+            }
 
-        .trivia-section.open {
-            max-height: 500px; /* Ajusta según la cantidad de contenido */
-            background-color: #222; /* El fondo aparece al abrirse */
-        }
+            .trivia-section.open {
+                max-height: 400px; /* Ajusta según la cantidad de contenido */
+                background-color: #222; /* El fondo aparece al abrirse */
+            }
 
-        .joystick-icon {
-            font-size: 2em;
-            color: #b580ff;
-        }
+            .joystick-icon {
+                font-size: 1.5em; /* Ajusté el tamaño del icono */
+                color: #b580ff;
+            }
 
-        .trivia-section h2 {
-            color: #b580ff;
-            margin-bottom: 10px;
-            font-size: 1.3em;
-        }
+            .trivia-section h2 {
+                color: #b580ff;
+                margin-bottom: 8px; /* Reduje el margen inferior */
+                font-size: 1.1em; /* Reduje el tamaño del título */
+            }
 
-        .trivia-question {
-            font-weight: bold;
-            margin-bottom: 5px;
-            font-size: 1em;
-        }
+            .trivia-question {
+                font-weight: bold;
+                margin-bottom: 3px; /* Reduje el margen inferior */
+                font-size: 0.9em; /* Reduje el tamaño de la fuente */
+            }
 
-        .trivia-options button {
-            background-color: #333;
-            color: #eee;
-            border: none;
-            padding: 6px 10px;
-            margin: 3px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.9em;
-            transition: background-color 0.3s;
-        }
+            .trivia-options button {
+                background-color: #333;
+                color: #eee;
+                border: none;
+                padding: 4px 8px; /* Reduje el padding de los botonesmargin: 2px; /* Reduje el margen de los botones */
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 0.8em; /* Reduje el tamaño de la fuente de los botones */
+                transition: background-color 0.3s;
+            }
 
-        .trivia-options button:hover {
-            background-color: #555;
-        }
+            .trivia-options button:hover {
+                background-color: #555;
+            }
 
-        .trivia-answer {
-            margin-top: 8px;
-            font-weight: bold;
-            font-size: 0.9em;
-        }
+            .trivia-answer {
+                margin-top: 6px; /* Reduje el margen superior */
+                font-weight: bold;
+                font-size: 0.8em; /* Reduje el tamaño de la fuente */
+            }
 
-        /* Estilos para la playlist de Spotify */
-        .spotify-playlist {
-            width: 95%;
-            max-width: 800px; /* Puedes ajustar este valor */
-            margin: 30px auto;
-            text-align: center; /* Centrar contenido inline como el iframe */
-            background-color: #1a1a1a; /* Fondo consistente */
-            border-radius: 15px;
-            padding: 20px;
-            box-sizing: border-box;
-        }
+            /* Estilos para la playlist de Spotify */
+            .spotify-playlist {
+                width: 95%;
+                max-width: 600px; /* Ajusté el ancho máximo */
+                margin: 20px auto; /* Reduje el margen vertical */
+                text-align: center; /* Centrar contenido inline como el iframe */
+                background-color: #1a1a1a; /* Fondo consistente */
+                border-radius: 10px; /* Igualé el radio del borde */
+                padding: 15px; /* Reduje el padding */
+                box-sizing: border-box;
+            }
 
-        .spotify-playlist h2 {
-            color: #1ed760; /* Color verde de Spotify */
-            margin-bottom: 15px;
-        }
+            .spotify-playlist h2 {
+                color: #1ed760; /* Color verde de Spotify */
+                margin-bottom: 10px; /* Reduje el margen inferior */
+                font-size: 1.3em; /* Reduje el tamaño del título */
+            }
 
-        /* Estilos para el iframe de Spotify */
-        .spotify-playlist iframe {
-            border-radius:12px;
-            width: 100%; /* Ocupar el ancho del contenedor */
-            height: 352px;
-            border: none; /* Opcional: quitar el borde del iframe */
-        }
-    </style>
+            /* Estilos para el iframe de Spotify */
+            .spotify-playlist iframe {
+                border-radius:12px;
+                width: 100%; /* Ocupar el ancho del contenedor */
+                height: 250px; /* Reduje la altura del iframe */
+                border: none; /* Opcional: quitar el borde del iframe */
+            }
+        </style>
 </head>
 <body>
 
@@ -488,14 +505,14 @@
         <div class="info-festi">
             <h2>¿Cómo se creó el Festival?</h2>
             <p>¿Alguna vez te pensaste cómo se creó el Festi? Bueno, acá te traemos la posta.</p>
-            <p>El Festi se creó gracias al Prof. Carlos Ferreira cuando era el rector del colegio. Sí, aparte de ser uno de los mejores profesores, fuerector. ¡Gracias a su visión, hoy tenemos este evento increíble!</p>
+            <p>El Festi se creó gracias al Prof. Carlos Ferreira cuando era el rector del colegio. Sí, aparte de ser uno de los mejores profesores, fue rector. ¡Gracias a su visión, hoy tenemos este evento increíble!</p>
         </div>
     </div>
 
 
     <section class="spotify-playlist">
         <h2>¡Escuchá la playlist del Festi!</h2>
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1G5mCpcZACGaIjo8wP7BPp?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1G5mCpcZACGaIjo8wP7BPp?utm_source=generator" width="100%" height="250" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </section>
 
     <button id="activarSonido">🔊 Activar sonido</button>
@@ -511,15 +528,15 @@
         <div id="trivia-container">
             <div class="trivia-question">¿Qué profesor impulsó la creación del Festi?</div>
             <div class="trivia-options">
-                <button onclick="responderTrivia(this, 'Noviembre')">Carlos Ferreira</button>
-                <button onclick="responderTrivia(this, 'Noviembre')">Otro Profesor</button>
+                <button onclick="responderTrivia(this, 'Carlos Ferreira', 0)">Carlos Ferreira</button>
+                <button onclick="responderTrivia(this, 'Otro Profesor', 0)">Otro Profesor</button>
             </div>
             <div id="trivia-respuesta-0" class="trivia-answer"></div>
-        
+
             <div class="trivia-question">¿Cuándo fue el Festi el año pasado?</div>
             <div class="trivia-options">
-                <button onclick="responderTrivia(this, 'Noviembre')">Noviembre</button>
-                <button onclick="responderTrivia(this, 'Diciembre')">Diciembre</button>
+                <button onclick="responderTrivia(this, 'Noviembre', 1)">Noviembre</button>
+                <button onclick="responderTrivia(this, 'Diciembre', 1)">Diciembre</button>
             </div>
             <div id="trivia-respuesta-1" class="trivia-answer"></div>
         </div>
@@ -680,8 +697,8 @@
             });
         });
 
-        function responderTrivia(boton, respuestaCorrecta) {
-            const respuestaDiv = document.getElementById('trivia-respuesta');
+        function responderTrivia(boton, respuestaCorrecta, preguntaIndice) {
+            const respuestaDiv = document.getElementById(`trivia-respuesta-${preguntaIndice}`);
             if (boton.textContent === respuestaCorrecta) {
                 respuestaDiv.textContent = "¡Correcto!";
                 respuestaDiv.style.color = "#1ed760";
