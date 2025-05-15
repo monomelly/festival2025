@@ -5,57 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>¿Cómo me postulo? - Festi 2025</title>
     <style>
-                    body, html {
-                margin: 0;
-                padding: 0;
-                font-family: 'Arial', sans-serif;
-                background-color: #0f0f0f;
-                color: #fff;
-                overflow-x: hidden; /* Evita la barra de desplazamiento horizontal */
-            }
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #0f0f0f;
+            color: #fff;
+            overflow-x: hidden; /* Evita la barra de desplazamiento horizontal */
+        }
 
-            nav {
-                position: fixed;
-                top: 0;
-                width: 100%;
-                background-color: #1a1a1a;
-                padding: 10px 0; /* Reduje el padding vertical */
-                z-index: 1000;
-                display: flex;
-                justify-content: center;
-            }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #1a1a1a;
+            padding: 10px 0; /* Reduje el padding vertical */
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+        }
 
-            nav ul {
-                list-style: none;
-                display: flex;
-                flex-wrap: wrap; /* Permite que los elementos del menú pasen a la siguiente línea en pantallas pequeñas */
-                justify-content: center;
-                align-items: center;
-                margin: 0;
-                padding: 0;
-                white-space: nowrap;
-                gap: 10px; /* Reduje el gap */
-            }
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap; /* Permite que los elementos del menú pasen a la siguiente línea en pantallas pequeñas */
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+            gap: 10px; /* Reduje el gap */
+        }
 
-            nav ul li {
-                margin: 0; /* Elimine el margen horizontal de los ítems de la lista */
-            }
-
-            nav ul li a {
-                color: #fff;
-                text-decoration: none;
-                font-weight: bold;
-                text-transform: uppercase;
-                transition: color 0.3s;
-                white-space: nowrap;
-                font-size: 0.85em; /* Reduje el tamaño de la fuente */
-                padding: 6px 10px; /* Reduje el padding del enlace */
-                border-radius: 5px; /* Añadí un pequeño borde redondeado */
-            }
-
-            nav ul li a:hover {
-                color: #ff00cc;
-            }
+        nav ul li {
+            margin: 0; /* Elimine el margen horizontal de los ítems de la lista */
+        }
 
         nav ul li a {
             color: #fff;
@@ -64,8 +48,9 @@
             text-transform: uppercase;
             transition: color 0.3s;
             white-space: nowrap;
-            font-size: 0.9em;
-            padding: 8px 12px;
+            font-size: 0.85em; /* Reduje el tamaño de la fuente */
+            padding: 6px 10px; /* Reduje el padding del enlace */
+            border-radius: 5px; /* Añadí un pequeño borde redondeado */
         }
 
         nav ul li a:hover {
@@ -73,114 +58,126 @@
         }
 
         header {
-            margin-top: 100px;
+            margin-top: 60px; /* Ajusté el margen superior para que no quede debajo de la navegación */
             text-align: center;
+            padding: 20px; /* Añadí un poco de padding al header */
         }
 
         h1 {
-            font-size: 2.2em;
+            font-size: 2em; /* Reduje el tamaño del título */
             color: #ff4de3;
-            margin-bottom: 10px;
+            margin-bottom: 10px; /* Añadí un poco de margen inferior al título */
         }
 
         .contenido {
             background-color: #1a1a1a;
-            margin: 30px auto;
-            padding: 30px 20px;
-            border-radius: 15px;
-            width: 90%;
-            max-width: 900px;
+            margin: 20px auto; /* Reduje el margen superior e inferior */
+            padding: 20px; /* Reduje el padding */
+            border-radius: 10px; /* Reduje el radio del borde */
+            width: 95%;
+            max-width: 600px; /* Reduje el ancho máximo */
             text-align: center;
-            box-shadow: 0 0 15px #ff4de3aa;
+            box-shadow: 0 0 10px #ff4de3aa; /* Reduje el resplandor */
+            box-sizing: border-box; /* Asegura que padding y border se incluyan en el ancho */
         }
 
         .contenido p {
-            font-size: 1.1em;
+            font-size: 1em; /* Reduje el tamaño de la fuente */
             color: #ddd;
+            line-height: 1.5; /* Ajusté el interlineado */
+            margin-bottom: 15px; /* Reduje el margen inferior */
         }
 
         .btn-postularme {
             background-color: #ff00cc;
             color: white;
-            padding: 12px 20px;
+            padding: 10px 15px; /* Reduje el padding del botón */
             border: none;
-            border-radius: 8px;
+            border-radius: 6px; /* Reduje el radio del borde */
             cursor: pointer;
             font-weight: bold;
-            margin-top: 20px;
-            box-shadow: 0 0 10px #ff00cc;
+            margin-top: 15px; /* Reduje el margen superior */
+            box-shadow: 0 0 8px #ff00cc; /* Reduje el resplandor */
+            font-size: 0.9em; /* Reduje el tamaño de la fuente */
         }
 
         /* Ventana deslizante */
         .ventana {
             position: fixed;
-            top: -100%; /* Oculta la ventana fuera de la vista inicialmente */
+            top: 60px; /* Ajustamos el top para dejar espacio desde la navegación */
             left: 0;
             width: 100%;
             background-color: #1a1a1a;
             box-shadow: 0 4px 10px #00000066;
-            padding: 30px 20px;
+            padding: 15px; /* Reduje el padding */
             text-align: center;
-            transition: top 0.5s ease; /* Esto es lo que crea la animación de deslizamiento */
+            transition: top 0.3s ease; /* Reduje la duración de la transición */
             z-index: 2000;
+            max-height: calc(100% - 120px); /* Limitamos la altura máxima */
+            overflow-y: auto; /* Permite el scroll si el contenido es muy largo */
+            box-sizing: border-box; /* Asegura que padding y border se incluyan en el ancho */
         }
 
         .ventana.mostrar {
-            top: 80px; /* Muestra la ventana bajándola desde arriba */
+            top: 60px; /* Se muestra desde este punto */
         }
 
         .ventana h2 {
             color: #ff4de3;
-            margin-bottom: 30px;
+            margin-bottom: 20px; /* Reduje el margen inferior */
+            font-size: 1.3em; /* Reduje el tamaño del título */
         }
 
         .opciones {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
+            display: grid; /* Usamos grid para una mejor disposición en móvil */
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Columnas más pequeñas */
+            gap: 10px; /* Reduje el gap */
+            padding: 10px;
         }
 
         .opcion {
             background-color: #292929;
-            border-radius: 15px;
-            padding: 20px;
-            width: 220px;
+            border-radius: 8px; /* Reduje el radio del borde */
+            padding: 10px; /* Reduje el padding */
             cursor: pointer;
-            box-shadow: 0 0 10px #ff00cc44;
-            transition: transform 0.3s;
+            box-shadow: 0 0 6px #ff00cc44; /* Reduje la sombra */
+            transition: transform 0.2s; /* Reduje la duración de la transición */
+            text-align: center; /* Centramos el contenido de la opción */
+            box-sizing: border-box; /* Asegura que padding y border se incluyan en el ancho */
         }
 
         .opcion:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px #ff00ccaa;
+            transform: scale(1.03); /* Reduje la escala al hacer hover */
+            box-shadow: 0 0 10px #ff00ccaa; /* Reduje la sombra al hacer hover */
         }
 
         .opcion .icono {
-            font-size: 3em;
-            margin-bottom: 10px;
+            font-size: 2em; /* Reduje el tamaño del icono */
+            margin-bottom: 5px; /* Reduje el margen inferior */
         }
 
         .opcion .titulo {
             font-weight: bold;
-            margin-bottom: 5px;
+            font-size: 0.9em; /* Reduje el tamaño del título */
+            margin-bottom: 3px; /* Reduje el margen inferior */
         }
 
         .opcion .texto {
-            font-size: 0.95em;
+            font-size: 0.8em; /* Reduje el tamaño del texto */
             color: #bbb;
         }
 
         .instructivo {
             background-color: #1a1a1a;
-            margin: 20px auto;
-            padding: 30px 20px;
-            border-radius: 15px;
-            width: 90%;
-            max-width: 900px;
+            margin: 15px auto; /* Reduje el margen superior e inferior */
+            padding: 15px; /* Reduje el padding */
+            border-radius: 8px; /* Reduje el radio del borde */
+            width: 95%;
+            max-width: 500px; /* Reduje el ancho máximo */
             text-align: left;
-            box-shadow: 0 0 15px #b580ffaa;
+            box-shadow: 0 0 8px #b580ffaa; /* Reduje la sombra */
             display: none;
+            box-sizing: border-box; /* Asegura que padding y border se incluyan en el ancho */
         }
 
         .instructivo.mostrar {
@@ -189,22 +186,24 @@
 
         .instructivo h3 {
             color: #b580ff;
-            margin-bottom: 10px;
+            font-size: 1em; /* Reduje el tamaño del título */
+            margin-bottom: 8px; /* Reduje el margen inferior */
         }
 
         .instructivo ol {
-            padding-left: 20px;
+            padding-left: 15px; /* Reduje el padding izquierdo */
         }
 
         .instructivo li {
-            margin-bottom: 10px;
+            margin-bottom: 6px; /* Reduje el margen inferior */
+            font-size: 0.9em; /* Reduje el tamaño de la fuente */
         }
 
         .cerrar-ventana {
             position: absolute;
-            top: 12px;
-            right: 20px;
-            font-size: 1.8em;
+            top: 8px; /* Ajusté la posición del botón cerrar */
+            right: 12px; /* Ajusté la posición del botón cerrar */
+            font-size: 1.5em; /* Reduje el tamaño del botón cerrar */
             font-weight: bold;
             color: #ff4de3;
             cursor: pointer;
@@ -213,7 +212,7 @@
         }
 
         .cerrar-ventana:hover {
-            transform: scale(1.2);
+            transform: scale(1.1); /* Reduje la escala al hacer hover */
             color: #ff00cc;
         }
     </style>
@@ -333,6 +332,10 @@
 
             instructivo.innerHTML = contenido;
             instructivo.classList.add('mostrar');
+            // Desplazar la vista para que el instructivo sea más visible
+            setTimeout(() => {
+                instructivo.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
         }
 
         function cerrarVentana() {
@@ -344,4 +347,3 @@
 
 </body>
 </html>
-
