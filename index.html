@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Festi 2025</title>
         <style>
-                        body, html {
+            body, html {
                 margin: 0;
                 padding: 0;
                 font-family: 'Arial', sans-serif;
@@ -160,9 +160,41 @@
 
             .countdown-container {
                 position: fixed;
-                bottom: 60px; /* Ajusté la posición inferior */
-                right: 10px; /* Ajusté la posición derecha */
+                bottom: 60px;
+                right: -180px; /* Inicialmente oculto a la derecha (ajusta según el ancho) */
                 z-index: 9999;
+                display: flex;
+                align-items: center;
+                transition: right 0.3s ease-in-out;
+            }
+
+            .countdown-container.open {
+                right: 10px;
+            }
+
+            .countdown-toggle {
+                background-color: #ff4de3;
+                color: white;
+                border: none;
+                border-radius: 8px 0 0 8px;
+                padding: 10px 8px;
+                cursor: pointer;
+                outline: none;
+            }
+
+            #toggle-countdown-btn {
+                font-size: 1.2em;
+                color: white;
+                background: none;
+                border: none;
+                padding: 0;
+                cursor: pointer;
+                outline: none;
+            }
+
+            .countdown-box-wrapper {
+                overflow: hidden;
+                border-radius: 10px;
             }
 
             .countdown-box {
@@ -384,6 +416,7 @@
             }
 
             .trivia-section.open {
+                max-height: 400px; /* Ajust
                 max-height: 400px; /* Ajusta según la cantidad de contenido */
                 background-color: #222; /* El fondo aparece al abrirse */
             }
@@ -451,6 +484,72 @@
                 height: 250px; /* Reduje la altura del iframe */
                 border: none; /* Opcional: quitar el borde del iframe */
             }
+
+            .countdown-container {
+                position: fixed;
+                bottom: 60px;
+                right: -180px; /* Inicialmente oculto a la derecha (ajusta según el ancho) */
+                z-index: 9999;
+                display: flex;
+                align-items: center;
+                transition: right 0.3s ease-in-out;
+            }
+
+            .countdown-container.open {
+                right: 10px;
+            }
+
+            .countdown-toggle {
+                background-color: #ff4de3;
+                color: white;
+                border: none;
+                border-radius: 8px 0 0 8px;
+                padding: 10px 8px;
+                cursor: pointer;
+                outline: none;
+            }
+
+            #toggle-countdown-btn {
+                font-size: 1.2em;
+                color: white;
+                background: none;
+                border: none;
+                padding: 0;
+                cursor: pointer;
+                outline: none;
+            }
+
+            .countdown-box-wrapper {
+                overflow: hidden;
+                border-radius: 10px;
+            }
+
+            .countdown-box {
+                display: flex;
+                background-color: #1a1a1a;
+                border: 2px solid #ff4de3;
+                border-radius: 10px;
+                padding: 10px 15px;
+                box-shadow: 0 0 10px #ff4de3aa;
+                font-family: 'Courier New', monospace;
+            }
+
+            .countdown-box div {
+                margin: 0 10px;
+                text-align: center;
+            }
+
+            .countdown-box span {
+                font-size: 2em;
+                font-weight: bold;
+                color: #ffffff;
+                display: block;
+            }
+
+            .countdown-box small {
+                color: #ff4de3;
+                font-size: 0.8em;
+            }
         </style>
 </head>
 <body>
@@ -482,11 +581,16 @@
             <div id="cuenta-regresiva" class="cuenta"></div>
 
             <div class="countdown-container">
-                <div class="countdown-box">
-                    <div><span id="dias">00</span><small>Días</small></div>
-                    <div><span id="horas">00</span><small>Horas</small></div>
-                    <div><span id="minutos">00</span><small>Min</small></div>
-                    <div><span id="segundos">00</span><small>Seg</small></div>
+                <div class="countdown-toggle">
+                    <button id="toggle-countdown-btn">❯</button>
+                </div>
+                <div class="countdown-box-wrapper">
+                    <div class="countdown-box">
+                        <div><span id="dias">00</span><small>Días</small></div>
+                        <div><span id="horas">00</span><small>Horas</small></div>
+                        <div><span id="minutos">00</span><small>Min</small></div>
+                        <div><span id="segundos">00</span><small>Seg</small></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -648,28 +752,38 @@
             }
         }, 1000);
 
-        const festiFechaNuevo = new Date("November 8, 2025 00:00:00").getTime();
-
-        setInterval(() => {
-            const ahoraNuevo = new Date().getTime();
-            const distancia = festiFechaNuevo - ahoraNuevo;
-
-            const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
-            const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
-            const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
-
-            document.getElementById("dias").textContent = dias.toString().padStart(2, '0');
-            document.getElementById("horas").textContent = horas.toString().padStart(2, '0');
-            document.getElementById("minutos").textContent = minutos.toString().padStart(2, '0');
-            document.getElementById("segundos").textContent = segundos.toString().padStart(2, '0');
-
-            if (distancia < 0) {
-                document.querySelector(".countdown-box").innerHTML = "<span>¡El Festi ya empezó! 🎉</span>";
-            }
-        }, 1000);
-
         document.addEventListener('DOMContentLoaded', function() {
+            const countdownContainer = document.querySelector('.countdown-container');
+            const toggleCountdownBtn = document.getElementById('toggle-countdown-btn');
+            let isCountdownOpen = false;
+
+            toggleCountdownBtn.addEventListener('click', () => {
+                isCountdownOpen = !isCountdownOpen;
+                countdownContainer.classList.toggle('open', isCountdownOpen);
+                toggleCountdownBtn.textContent = isCountdownOpen ? '❮' : '❯';
+            });
+
+            const festiFechaNuevo = new Date("November 8, 2025 00:00:00").getTime();
+
+            setInterval(() => {
+                const ahoraNuevo = new Date().getTime();
+                const distancia = festiFechaNuevo - ahoraNuevo;
+
+                const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+                const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+                const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+                document.getElementById("dias").textContent = dias.toString().padStart(2, '0');
+                document.getElementById("horas").textContent = horas.toString().padStart(2, '0');
+                document.getElementById("minutos").textContent = minutos.toString().padStart(2, '0');
+                document.getElementById("segundos").textContent = segundos.toString().padStart(2, '0');
+
+                if (distancia < 0) {
+                    document.querySelector(".countdown-box").innerHTML = "<span>¡El Festi ya empezó! 🎉</span>";
+                }
+            }, 1000);
+
             const faqButton = document.querySelector('.faq-button');
             const faqSection = document.querySelector('.faq-section');
             const faqQuestions = faqSection.querySelectorAll('.faq-question');
