@@ -2,309 +2,173 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Festi 2025</title>
-        <style>
-            body, html {
-                margin: 0;
-                padding: 0;
-                font-family: 'Arial', sans-serif;
-                background-color: #0f0f0f;
-                color: #fff;
-            }
-
-            nav {
-                position: fixed;
-                top: 0;
-                width: 100%;
-                background-color: #1a1a1a;
-                padding: 15px 0;
-                z-index: 1000;
-                display: flex;
-                justify-content: center;
-            }
-
-            nav ul {
-                list-style: none;
-                display: flex;
-                flex-wrap: nowrap;
-                justify-content: center;
-                align-items: center;
-                margin: 0;
-                padding: 0;
-                white-space: nowrap;
-                gap: 15px;
-            }
-
-            nav ul li {
-                margin: 0 20px;
-            }
-
-            nav ul li a {
-                color: #fff;
-                text-decoration: none;
-                font-weight: bold;
-                text-transform: uppercase;
-                transition: color 0.3s;
-                white-space: nowrap;
-                font-size: 0.9em;
-                padding: 8px 12px;
-            }
-
-            nav ul li a:hover {
-                color: #ff00cc;
-            }
-
-                header {
-                    margin-top: 100px;
-                    text-align: center;
-                }
-
-                header img {
-                    width: 200px;
-                    margin-bottom: 20px;
-                }
-
-                h1 {
-                    font-size: 2.5em;
-                    color: #ff4de3;
-                }
-
-                .main-content {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    width: 95%;
-                    max-width: 1200px;
-                    margin: 20px auto;
-                }
-
-                .inicio, .que-espera, .info-festi, .spotify-playlist {
-                    width: 100%;
-                    max-width: 1000px;
-                    margin-bottom: 30px;
-                    border-radius: 15px;
-                    padding: 20px;
-                    box-sizing: border-box;
-                    background-color: #1a1a1a; /* Añadido fondo a Spotify para consistencia */
-                    text-align: center; /* Centrar el contenido del iframe */
-                }
-
-                .inicio {
-                    box-shadow: 0 0 15px #ff4de3aa;
-                    padding: 30px 20px;
-                }
-
-                .inicio h2 {
-                    color: #b580ff;
-                }
-
-                .inicio p {
-                    font-size: 1.1em;
-                    line-height: 1.6;
-                    color: #ddd;
-                }
-
-                .inicio img {
-                    width: 100%;
-                    max-height: 400px;
-                    object-fit: cover;
-                    border-radius: 15px;
-                    margin-top: 20px;
-                }
-
-                ul {
-                    list-style: none;
-                    padding: 0;
-                    text-align: left;
-                    max-width: 600px;
-                    margin: 0 auto;
-                }
-
-                ul li {
-                    margin: 10px 0;
-                    font-size: 1.05em;
-                }
-
-                .cuenta {
-                    font-size: 1.3em;
-                    font-weight: bold;
-                    color: #ff4de3;
-                    margin-top: 15px;
-                    display: none;
-                }
-
-                #activarSonido {
-                    position: fixed;
-                    bottom: 20px;
-                    right: 20px;
-                    background-color: #ff00cc;
-                    color: white;
-                    border: none;
-                    padding: 12px 20px;
-                    border-radius: 8px;
-                    font-size: 1em;
-                    cursor: pointer;
-                    box-shadow: 0 0 10px #ff00cc;
-                    z-index: 2000;
-                }
-
-                .countdown-container {
-                    position: fixed;
-                    bottom: 80px;
-                    right: 15px;
-                    z-index: 9999;
-                }
-
-                .countdown-box {
-                    display: flex;
-                    background-color: #1a1a1a;
-                    border: 3px solid #ff4de3;
-                    border-radius: 15px;
-                    padding: 15px 20px;
-                    box-shadow: 0 0 15px #ff4de3aa;
-                    font-family: 'Courier New', monospace;
-                }
-
-                .countdown-box div {
-                    margin: 0 15px;
-                    text-align: center;
-                }
-
-                .countdown-box span {
-                    font-size: 2.5em;
-                    font-weight: bold;
-                    color: #ffffff;
-                    display: block;
-                }
-
-                .countdown-box small {
-                    color: #ff4de3;
-                    font-size: 1em;
-                }
-
-                .que-espera {
-                    box-shadow: 0 0 15px #b580ffaa;
-                    padding: 20px;
-                    text-align: center;
-                }
-
-                .que-espera h3 {
-                    color: #ff4de3;
-                }
-
-                .que-espera ul {
-                    text-align: left;
-                }
-
-                .info-festi {
-                    box-shadow: 0 0 15px #b580ffaa;
-                    padding: 30px 20px;
-                    text-align: center;
-                }
-
-                .info-festi h2 {
-                    color: #b580ff;
-                }
-
-                .info-festi p {
-                    font-size: 1.1em;
-                    line-height: 1.6;
-                    color: #ddd;
-                }
-
-                .social-media {
-                    text-align: center;
-                    margin-top: 20px;
-                    margin-bottom: 30px;
-                }
-
-                .social-media a {
-                    display: inline-block;
-                    margin: 0 10px;
-                }
-
-                 .social-media img {
-                    width: 48px;
-                    height: 48px;
-                    vertical-align: middle;
-                 }
-
-        .faq-section {
-            background-color: #1a1a1a;
+    <style>
+        /* Estilos generales */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #0f0f0f;
             color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px #333;
-            width: 300px; /* Ancho del cuadro FAQ */
+        }
+
+        nav {
             position: fixed;
-            bottom: 20px; /* Ajustado */
-            left: 20px;
-            z-index: 1001;
-            transform: translateX(-110%); /* Ocultar inicialmente */
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .faq-section.open {
-            transform: translateX(0); /* Mostrar al estar abierto */
-        }
-
-        .faq-section h2 {
-            color: #ff4de3;
-            text-align: center;
-            margin-bottom: 15px;
-            font-size: 1.5em;
-        }
-
-        .faq-item {
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-        }
-
-        .faq-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-            margin-bottom: 0;
-        }
-
-        .faq-question {
-            background: none;
-            color: #ddd;
-            border: none;
-            padding: 8px 0;
-            font-size: 1em;
-            font-weight: bold;
-            cursor: pointer;
+            top: 0;
             width: 100%;
-            text-align: left;
+            background-color: #1a1a1a;
+            padding: 15px 0;
+            z-index: 1000;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            justify-content: center;
         }
 
-        .faq-question::before {
-            content: '?';
-            font-size: 1.2em;
-            margin-right: 10px;
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+            gap: 15px;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            font-size: 0.9em;
+            padding: 8px 12px;
+        }
+
+        nav ul li a:hover {
+            color: #ff00cc;
+        }
+
+        header {
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        header img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2em;
             color: #ff4de3;
         }
 
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            padding-top: 8px;
-            font-size: 0.9em;
-            line-height: 1.4;
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 95%;
+            max-width: 1200px;
+            margin: 20px auto;
         }
 
-        .faq-question.active + .faq-answer {
-            max-height: 500px;
-            padding-bottom: 8px;
+        .inicio,
+        .que-espera,
+        .info-festi,
+        .spotify-playlist {
+            width: 100%;
+            max-width: 1000px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #1a1a1a;
+            text-align: center;
         }
 
-        /* Botón FAQ fijo */
-        /* Botón FAQ fijo */
+        .inicio h2 {
+            color: #b580ff;
+        }
+
+        .inicio p {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #ddd;
+        }
+
+        .inicio img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        ul li {
+            margin: 10px 0;
+            font-size: 1em;
+        }
+
+        .countdown-container {
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .countdown-box {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            background-color: #1a1a1a;
+            border: 3px solid #ff4de3;
+            border-radius: 15px;
+            padding: 15px 20px;
+            box-shadow: 0 0 15px #ff4de3aa;
+            font-family: 'Courier New', monospace;
+        }
+
+        .countdown-box div {
+            text-align: center;
+        }
+
+        .countdown-box span {
+            font-size: 2em;
+            font-weight: bold;
+            color: #ffffff;
+            display: block;
+        }
+
+        .countdown-box small {
+            color: #ff4de3;
+            font-size: 1em;
+        }
+
+        .spotify-playlist iframe {
+            border-radius: 12px;
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        /* Botón FAQ */
         .faq-button {
             position: fixed;
             bottom: 20px;
@@ -315,129 +179,81 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            font-size: 2em; /* Aumentamos el tamaño del signo de pregunta */
+            font-size: 2em;
             display: flex;
             justify-content: center;
             align-items: center;
-            cursor: pointer;
             z-index: 1002;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-            line-height: 1; /* Ajustamos el espaciado de línea */
         }
 
-        /* Botón Trivia fijo */
-        .trivia-trigger-button {
-            position: fixed;
-            bottom: 80px; /* Ajustado para estar encima del FAQ */
-            left: 20px;
-            background-color: #b580ff;
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 1.5em;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            z-index: 1002;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        }
-
-        .trivia-trigger-button .joystick-icon {
-            font-size: 1.5em;
-        }
-
-        /* Estilos para la Trivia (inicialmente oculto y fijo) */
+        /* Trivia */
         .trivia-section {
-            background-color: transparent; /* Fondo transparente inicialmente */
-            color: #eee;
+            position: fixed;
+            bottom: 80px;
+            left: 10%;
+            right: 10%;
+            max-width: 300px;
+            margin: auto;
+            background-color: #222;
             border-radius: 10px;
             padding: 15px;
-            text-align: center;
-            overflow: hidden;
-            max-height: 0;
-            transition: max-height 0.3s ease-out, background-color 0.3s ease-in-out; /* Transición también para el background-color */
-            width: 300px; /* Similar al FAQ */
-            position: fixed;
-            bottom: 140px; /* Ajustado para estar encima del botón trivia */
-            left: 20px;
-            z-index: 1001;
+            display: none;
         }
 
         .trivia-section.open {
-            max-height: 500px; /* Ajusta según la cantidad de contenido */
-            background-color: #222; /* El fondo aparece al abrirse */
-        }
-
-        .joystick-icon {
-            font-size: 2em;
-            color: #b580ff;
-        }
-
-        .trivia-section h2 {
-            color: #b580ff;
-            margin-bottom: 10px;
-            font-size: 1.3em;
-        }
-
-        .trivia-question {
-            font-weight: bold;
-            margin-bottom: 5px;
-            font-size: 1em;
+            display: block;
         }
 
         .trivia-options button {
             background-color: #333;
             color: #eee;
             border: none;
-            padding: 6px 10px;
-            margin: 3px;
+            padding: 10px;
+            margin: 5px;
             border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.9em;
-            transition: background-color 0.3s;
         }
 
-        .trivia-options button:hover {
-            background-color: #555;
+        /* Media Queries */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            header img {
+                width: 120px;
+            }
+
+            .countdown-box span {
+                font-size: 1.5em;
+            }
+
+            .faq-button {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5em;
+            }
+
+            .trivia-section {
+                max-width: 90%;
+                left: 5%;
+                right: 5%;
+            }
         }
 
-        .trivia-answer {
-            margin-top: 8px;
-            font-weight: bold;
-            font-size: 0.9em;
-        }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
 
-        /* Estilos para la playlist de Spotify */
-        .spotify-playlist {
-            width: 95%;
-            max-width: 800px; /* Puedes ajustar este valor */
-            margin: 30px auto;
-            text-align: center; /* Centrar contenido inline como el iframe */
-            background-color: #1a1a1a; /* Fondo consistente */
-            border-radius: 15px;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .spotify-playlist h2 {
-            color: #1ed760; /* Color verde de Spotify */
-            margin-bottom: 15px;
-        }
-
-        /* Estilos para el iframe de Spotify */
-        .spotify-playlist iframe {
-            border-radius:12px;
-            width: 100%; /* Ocupar el ancho del contenedor */
-            height: 352px;
-            border: none; /* Opcional: quitar el borde del iframe */
+            .countdown-box span {
+                font-size: 1.2em;
+            }
         }
     </style>
 </head>
 <body>
-
+    
     <nav>
         <ul>
             <li><a href="index.html">Inicio</a></li>
