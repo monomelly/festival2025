@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Festi 2025</title>
+        <style>
+            body, html {
+                margin: 0;
+                padding: 0;
+                font-family: 'Arial', sans-serif;
+                background-color: #0f0f0f;
+                color: #fff;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                background-color: #1a1a1a;
+                padding: 15px 0;
+                z-index: 1000;
+                display: flex;
+                justify-content: center;
+            }
+
+            nav ul {
+                list-style: none;
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+                padding: 0;
+                white-space: nowrap;
+                gap: 15px;
+            }
+
+            nav ul li {
+                margin: 0 20px;
+            }
+
+            nav ul li a {
+                color: #fff;
+                text-decoration: none;
+                font-weight: bold;
+                text-transform: uppercase;
+                transition: color 0.3s;
+                white-space: nowrap;
+                font-size: 0.9em;
+                padding: 8px 12px;
+            }
+
+            nav ul li a:hover {
+                color: #ff00cc;
+            }
+
+                header {
+                    margin-top: 100px;
+                    text-align: center;
+                }
+
+                header img {
+                    width: 200px;
+                    margin-bottom: 20px;
+                }
+
+                h1 {
+                    font-size: 2.5em;
+                    color: #ff4de3;
+                }
+
+                .main-content {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 95%;
+                    max-width: 1200px;
+                    margin: 20px auto;
+                }
+
+                .inicio, .que-espera, .info-festi, .spotify-playlist {
+                    width: 100%;
+                    max-width: 1000px;
+                    margin-bottom: 30px;
+                    border-radius: 15px;
+                    padding: 20px;
+                    box-sizing: border-box;
+                    background-color: #1a1a1a; /* Añadido fondo a Spotify para consistencia */
+                    text-align: center; /* Centrar el contenido del iframe */
+                }
+
+                .inicio {
+                    box-shadow: 0 0 15px #ff4de3aa;
+                    padding: 30px 20px;
+                }
+
+                .inicio h2 {
+                    color: #b580ff;
+                }
+
+                .inicio p {
+                    font-size: 1.1em;
+                    line-height: 1.6;
+                    color: #ddd;
+                }
+
+                .inicio img {
+                    width: 100%;
+                    max-height: 400px;
+                    object-fit: cover;
+                    border-radius: 15px;
+                    margin-top: 20px;
+                }
+
+                ul {
+                    list-style: none;
+                    padding: 0;
+                    text-align: left;
+                    max-width: 600px;
+                    margin: 0 auto;
+                }
+
+                ul li {
+                    margin: 10px 0;
+                    font-size: 1.05em;
+                }
+
+                .cuenta {
+                    font-size: 1.3em;
+                    font-weight: bold;
+                    color: #ff4de3;
+                    margin-top: 15px;
+                    display: none;
+                }
+
+                #activarSonido {
+                    position: fixed;
+                    bottom: 20px;
+                    right: 20px;
+                    background-color: #ff00cc;
+                    color: white;
+                    border: none;
+                    padding: 12px 20px;
+                    border-radius: 8px;
+                    font-size: 1em;
+                    cursor: pointer;
+                    box-shadow: 0 0 10px #ff00cc;
+                    z-index: 2000;
+                }
+
+                .countdown-container {
+                    position: fixed;
+                    bottom: 80px;
+                    right: 15px;
+                    z-index: 9999;
+                }
+
+                .countdown-box {
+                    display: flex;
+                    background-color: #1a1a1a;
+                    border: 3px solid #ff4de3;
+                    border-radius: 15px;
+                    padding: 15px 20px;
+                    box-shadow: 0 0 15px #ff4de3aa;
+                    font-family: 'Courier New', monospace;
+                }
+
+                .countdown-box div {
+                    margin: 0 15px;
+                    text-align: center;
+                }
+
+                .countdown-box span {
+                    font-size: 2.5em;
+                    font-weight: bold;
+                    color: #ffffff;
+                    display: block;
+                }
+
+                .countdown-box small {
+                    color: #ff4de3;
+                    font-size: 1em;
+                }
+
+                .que-espera {
+                    box-shadow: 0 0 15px #b580ffaa;
+                    padding: 20px;
+                    text-align: center;
+                }
+
+                .que-espera h3 {
+                    color: #ff4de3;
+                }
+
+                .que-espera ul {
+                    text-align: left;
+                }
+
+                .info-festi {
+                    box-shadow: 0 0 15px #b580ffaa;
+                    padding: 30px 20px;
+                    text-align: center;
+                }
+
+                .info-festi h2 {
+                    color: #b580ff;
+                }
+
+                .info-festi p {
+                    font-size: 1.1em;
+                    line-height: 1.6;
+                    color: #ddd;
+                }
+
+                .social-media {
+                    text-align: center;
+                    margin-top: 20px;
+                    margin-bottom: 30px;
+                }
+
+                .social-media a {
+                    display: inline-block;
+                    margin: 0 10px;
+                }
+
+                 .social-media img {
+                    width: 48px;
+                    height: 48px;
+                    vertical-align: middle;
+                 }
+
+        .faq-section {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #333;
+            width: 300px; /* Ancho del cuadro FAQ */
+            position: fixed;
+            bottom: 20px; /* Ajustado */
+            left: 20px;
+            z-index: 1001;
+            transform: translateX(-110%); /* Ocultar inicialmente */
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .faq-section.open {
+            transform: translateX(0); /* Mostrar al estar abierto */
+        }
+
+        .faq-section h2 {
+            color: #ff4de3;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .faq-item {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .faq-question {
+            background: none;
+            color: #ddd;
+            border: none;
+            padding: 8px 0;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::before {
+            content: '?';
+            font-size: 1.2em;
+            margin-right: 10px;
+            color: #ff4de3;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding-top: 8px;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+
+        .faq-question.active + .faq-answer {
+            max-height: 500px;
+            padding-bottom: 8px;
+        }
+
+        /* Botón FAQ fijo */
+        /* Botón FAQ fijo */
+        .faq-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #ff4de3;
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 2em; /* Aumentamos el tamaño del signo de pregunta */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1002;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            line-height: 1; /* Ajustamos el espaciado de línea */
+        }
+
+        /* Botón Trivia fijo */
+        .trivia-trigger-button {
+            position: fixed;
+            bottom: 80px; /* Ajustado para estar encima del FAQ */
+            left: 20px;
+            background-color: #b580ff;
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1002;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .trivia-trigger-button .joystick-icon {
+            font-size: 1.5em;
+        }
+
+        /* Estilos para la Trivia (inicialmente oculto y fijo) */
+        .trivia-section {
+            background-color: transparent; /* Fondo transparente inicialmente */
+            color: #eee;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.3s ease-out, background-color 0.3s ease-in-out; /* Transición también para el background-color */
+            width: 300px; /* Similar al FAQ */
+            position: fixed;
+            bottom: 140px; /* Ajustado para estar encima del botón trivia */
+            left: 20px;
+            z-index: 1001;
+        }
+
+        .trivia-section.open {
+            max-height: 500px; /* Ajusta según la cantidad de contenido */
+            background-color: #222; /* El fondo aparece al abrirse */
+        }
+
+        .joystick-icon {
+            font-size: 2em;
+            color: #b580ff;
+        }
+
+        .trivia-section h2 {
+            color: #b580ff;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .trivia-question {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 1em;
+        }
+
+        .trivia-options button {
+            background-color: #333;
+            color: #eee;
+            border: none;
+            padding: 6px 10px;
+            margin: 3px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s;
+        }
+
+        .trivia-options button:hover {
+            background-color: #555;
+        }
+
+        .trivia-answer {
+            margin-top: 8px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        /* Estilos para la playlist de Spotify */
+        .spotify-playlist {
+            width: 95%;
+            max-width: 800px; /* Puedes ajustar este valor */
+            margin: 30px auto;
+            text-align: center; /* Centrar contenido inline como el iframe */
+            background-color: #1a1a1a; /* Fondo consistente */
+            border-radius: 15px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .spotify-playlist h2 {
+            color: #1ed760; /* Color verde de Spotify */
+            margin-bottom: 15px;
+        }
+
+        /* Estilos para el iframe de Spotify */
+        .spotify-playlist iframe {
+            border-radius:12px;
+            width: 100%; /* Ocupar el ancho del contenedor */
+            height: 352px;
+            border: none; /* Opcional: quitar el borde del iframe */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="como-me-postulo.html">¿Cómo Me Postulo?</a></li>
+            <li><a href="organizadores.html">Organizadores</a></li>
+            <li><a href="rifas-y-sorteos.html">¿Rifas y Sorteos?</a></li>
+            <li><a href="contactanos.html">Contáctanos</a></li>
+            <li><a href="vivo.html">En Vivo</a></li>
+            <li><a href="galeria.html">Galería</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <img src="html/logo-festi-removebg-preview-pica.png" alt="Logo del Festi 2025" />
+        <h1>¡Bienvenidos al Festi 2025!</h1>
+    </header>
+
+    <div class="main-content">
+        <section class="inicio">
+            <h2>Inicio</h2>
+            <p>El Festi es el evento más esperado del año en nuestro colegio. Música, creatividad, shows en vivo y toda la energía de los estudiantes en un solo lugar.</p>
+            <p>Este 8 de noviembre se parte de una experiencia única. Ya podés anotarte y participar.</p>
+            <p>¡Te esperamos para vivir el mejor festival del año! 🎤✨</p>
+
+            <div id="cuenta-regresiva" class="cuenta"></div>
+
+            <div class="countdown-container">
+                <div class="countdown-box">
+                    <div><span id="dias">00</span><small>Días</small></div>
+                    <div><span id="horas">00</span><small>Horas</small></div>
+                    <div><span id="minutos">00</span><small>Min</small></div>
+                    <div><span id="segundos">00</span><small>Seg</small></div>
+                </div>
+            </div>
+        </section>
+
+        <div class="que-espera">
+            <h3 style="color: #ff4de3;">¿Qué te espera?</h3>
+            <ul>
+                <li>🎤 Bandas en vivo y artistas invitados</li>
+                <li>🍔 Patio de comidas</li>
+                <li>🎨 Muestra de arte y feria creativa</li>
+                <li>🎁 Sorteos y premios</li>
+                <li>🎬 Video sorpresa de los estudiantes</li>
+            </ul>
+        </div>
+
+        <div class="info-festi">
+            <h2>¿Cómo se creó el Festival?</h2>
+            <p>¿Alguna vez te pensaste cómo se creó el Festi? Bueno, acá te traemos la posta.</p>
+            <p>El Festi se creó gracias al Prof. Carlos Ferreira cuando era el rector del colegio. Sí, aparte de ser uno de los mejores profesores, fuerector. ¡Gracias a su visión, hoy tenemos este evento increíble!</p>
+        </div>
+    </div>
+
+
+    <section class="spotify-playlist">
+        <h2>¡Escuchá la playlist del Festi!</h2>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1G5mCpcZACGaIjo8wP7BPp?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </section>
+
+    <button id="activarSonido">🔊 Activar sonido</button>
+
+    <button class="trivia-trigger-button" id="trivia-trigger">
+        <div class="joystick-icon">🎮</div>
+    </button>
+
+    <button class="faq-button">?</button>
+
+    <section id="trivia-section" class="trivia-section">
+        <h2>Trivia Festi</h2>
+        <div id="trivia-container">
+            <div class="trivia-question">¿Qué profesor impulsó la creación del Festi?</div>
+            <div class="trivia-options">
+                <button onclick="responderTrivia(this, 'Noviembre')">Carlos Ferreira</button>
+                <button onclick="responderTrivia(this, 'Noviembre')">Otro Profesor</button>
+            </div>
+            <div id="trivia-respuesta-0" class="trivia-answer"></div>
+        
+            <div class="trivia-question">¿Cuándo fue el Festi el año pasado?</div>
+            <div class="trivia-options">
+                <button onclick="responderTrivia(this, 'Noviembre')">Noviembre</button>
+                <button onclick="responderTrivia(this, 'Diciembre')">Diciembre</button>
+            </div>
+            <div id="trivia-respuesta-1" class="trivia-answer"></div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="faq-item">
+            <button class="faq-question">¿Qué es el Festi 2025?</button>
+            <div class="faq-answer">
+                <p>El Festi 2025 es nuestro emocionante festival anual que celebra la creatividad y el espíritu de nuestra comunidad estudiantil.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">¿Cuándo y dónde se llevará a cabo el evento?</button>
+            <div class="faq-answer">
+                <p>El Festi 2025 se realizará el 8 de noviembre en las instalaciones de nuestro colegio.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">¿Cómo puedo postularme para participar?</button>
+            <div class="faq-answer">
+                <p>Para postularte, por favor visita nuestra sección "¿Cómo Me Postulo?" donde encontrarás todos los detalles y el formulario de inscripción.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">¿Habrá rifas o sorteos durante el evento?</button>
+            <div class="faq-answer">
+                <p>Sí, tendremos emocionantes rifas y sorteos. Mantente atento a nuestra sección "¿Rifas y Sorteos?" para más información sobre cómo participar y los premios.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">¿Cómo puedo contactarlos si tengo más preguntas?</button>
+            <div class="faq-answer">
+                <p>Puedes contactarnos a través de nuestra página "Contáctanos", donde encontrarás nuestro formulario de contacto y otra información relevante.</p>
+            </div>
+        </div>
+    </section>
+
+    <audio id="musica" loop>
+        <source src="tiny-desk-PyC.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio.
+    </audio>
+
+    <audio id="musicaSecundaria" loop>
+          <source src="back-in-back.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio.
+    </audio>
+
+    <script>
+        // Manejo de audio
+        const musicaPrimaria = document.getElementById('musica');
+        const musicaSecundaria = document.getElementById('musicaSecundaria');
+        const botonSonido = document.getElementById('activarSonido');
+        let sonidoPrimarioActivo = localStorage.getItem('sonidoActivo') === 'true' || false;
+
+        function actualizarBotonSonido() {
+            botonSonido.textContent = sonidoPrimarioActivo ? '🔇 Desactivar sonido' : '🔊 Activar sonido';
+        }function iniciarAudioSiActivo() {
+            if (sonidoPrimarioActivo) {
+                const playPromisePrimario = musicaPrimaria.play();
+                if (playPromisePrimario !== undefined) {
+                    playPromisePrimario.catch(() => {
+                        // La reproducción automática falló, el botón permitirá al usuario iniciarla
+                        botonSonido.style.display = 'block';
+                    });
+                } else {
+                    botonSonido.style.display = 'block';
+                }
+            } else {
+                musicaPrimaria.pause();
+            }
+            actualizarBotonSonido();
+        }
+
+        window.addEventListener('load', iniciarAudioSiActivo);
+
+        botonSonido.addEventListener('click', () => {
+            sonidoPrimarioActivo = !sonidoPrimarioActivo;
+            localStorage.setItem('sonidoActivo', sonidoPrimarioActivo);
+            actualizarBotonSonido();
+            if (sonidoPrimarioActivo) {
+                musicaPrimaria.play();
+            } else {
+                musicaPrimaria.pause();
+            }
+        });
+
+        musicaPrimaria.addEventListener('ended', () => {
+            musicaSecundaria.play();
+        });
+
+        const fechaFestiOriginal = new Date("November 8, 2025 00:00:00").getTime();
+        const countdownOriginal = setInterval(function() {
+            const ahora = new Date().getTime();
+            const diferencia = fechaFestiOriginal - ahora;
+            const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            const cuenta = document.getElementById("cuenta-regresiva");
+
+            if (diferencia < 0) {
+                cuenta.innerHTML = "¡El Festi ya comenzó!";
+                clearInterval(countdownOriginal);
+            } else {
+                cuenta.innerHTML = `Faltan ${dias} días para el Festi 🎉`;
+            }
+        }, 1000);
+
+        const festiFechaNuevo = new Date("November 8, 2025 00:00:00").getTime();
+
+        setInterval(() => {
+            const ahoraNuevo = new Date().getTime();
+            const distancia = festiFechaNuevo - ahoraNuevo;
+
+            const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+            document.getElementById("dias").textContent = dias.toString().padStart(2, '0');
+            document.getElementById("horas").textContent = horas.toString().padStart(2, '0');
+            document.getElementById("minutos").textContent = minutos.toString().padStart(2, '0');
+            document.getElementById("segundos").textContent = segundos.toString().padStart(2, '0');
+
+            if (distancia < 0) {
+                document.querySelector(".countdown-box").innerHTML = "<span>¡El Festi ya empezó! 🎉</span>";
+            }
+        }, 1000);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButton = document.querySelector('.faq-button');
+            const faqSection = document.querySelector('.faq-section');
+            const faqQuestions = faqSection.querySelectorAll('.faq-question');
+            const triviaTriggerButton = document.getElementById('trivia-trigger');
+            const triviaSection = document.getElementById('trivia-section');
+
+            faqButton.addEventListener('click', () => {
+                faqSection.classList.toggle('open');
+            });
+
+            triviaTriggerButton.addEventListener('click', () => {
+                triviaSection.classList.toggle('open');
+            });
+
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const answer = this.nextElementSibling;
+                    if (answer.style.maxHeight){
+                        answer.style.maxHeight = null;
+                    } else {
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                    }
+                });
+            });
+        });
+
+        function responderTrivia(boton, respuestaCorrecta) {
+            const respuestaDiv = document.getElementById('trivia-respuesta');
+            if (boton.textContent === respuestaCorrecta) {
+                respuestaDiv.textContent = "¡Correcto!";
+                respuestaDiv.style.color = "#1ed760";
+            } else {
+                respuestaDiv.textContent = "Incorrecto. Intenta de nuevo.";
+                respuestaDiv.style.color = "#e53935";
+            }
+        }
+    </script>
+
+    <audio id="musica" loop>
+        <source src="tiny-desk-PyC.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio.
+    </audio>
+
+    <audio id="musicaSecundaria" loop>
+          <source src="back-in-back.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio.
+    </audio>
+
+</body>
+</html>

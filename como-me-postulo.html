@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>¿Cómo me postulo? - Festi 2025</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #0f0f0f;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #1a1a1a;
+            padding: 15px 0; /* Establecemos un padding vertical fijo de 15px */
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+            gap: 15px;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            white-space: nowrap;
+            font-size: 0.9em;
+            padding: 8px 12px;
+        }
+
+        nav ul li a:hover {
+            color: #ff00cc;
+        }
+
+        header {
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            color: #ff4de3;
+            margin-bottom: 10px;
+        }
+
+        .contenido {
+            background-color: #1a1a1a;
+            margin: 30px auto;
+            padding: 30px 20px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 900px;
+            text-align: center;
+            box-shadow: 0 0 15px #ff4de3aa;
+        }
+
+        .contenido p {
+            font-size: 1.1em;
+            color: #ddd;
+        }
+
+        .btn-postularme {
+            background-color: #ff00cc;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 20px;
+            box-shadow: 0 0 10px #ff00cc;
+        }
+
+        /* Ventana deslizante */
+        .ventana {
+            position: fixed;
+            top: -100%; /* Oculta la ventana fuera de la vista inicialmente */
+            left: 0;
+            width: 100%;
+            background-color: #1a1a1a;
+            box-shadow: 0 4px 10px #00000066;
+            padding: 30px 20px;
+            text-align: center;
+            transition: top 0.5s ease; /* Esto es lo que crea la animación de deslizamiento */
+            z-index: 2000;
+        }
+
+        .ventana.mostrar {
+            top: 80px; /* Muestra la ventana bajándola desde arriba */
+        }
+
+        .ventana h2 {
+            color: #ff4de3;
+            margin-bottom: 30px;
+        }
+
+        .opciones {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .opcion {
+            background-color: #292929;
+            border-radius: 15px;
+            padding: 20px;
+            width: 220px;
+            cursor: pointer;
+            box-shadow: 0 0 10px #ff00cc44;
+            transition: transform 0.3s;
+        }
+
+        .opcion:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #ff00ccaa;
+        }
+
+        .opcion .icono {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .opcion .titulo {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .opcion .texto {
+            font-size: 0.95em;
+            color: #bbb;
+        }
+
+        .instructivo {
+            background-color: #1a1a1a;
+            margin: 20px auto;
+            padding: 30px 20px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 900px;
+            text-align: left;
+            box-shadow: 0 0 15px #b580ffaa;
+            display: none;
+        }
+
+        .instructivo.mostrar {
+            display: block;
+        }
+
+        .instructivo h3 {
+            color: #b580ff;
+            margin-bottom: 10px;
+        }
+
+        .instructivo ol {
+            padding-left: 20px;
+        }
+
+        .instructivo li {
+            margin-bottom: 10px;
+        }
+
+        .cerrar-ventana {
+            position: absolute;
+            top: 12px;
+            right: 20px;
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #ff4de3;
+            cursor: pointer;
+            transition: transform 0.2s;
+            z-index: 3000;
+        }
+
+        .cerrar-ventana:hover {
+            transform: scale(1.2);
+            color: #ff00cc;
+        }
+    </style>
+
+</head>
+<body>
+
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="como-me-postulo.html">¿Cómo Me Postulo?</a></li>
+            <li><a href="organizadores.html">Organizadores</a></li>
+            <li><a href="rifas-y-sorteos.html">¿Rifas y Sorteos?</a></li>
+            <li><a href="contactanos.html">Contáctanos</a></li>
+            <li><a href="vivo.html">En Vivo</a></li>
+            <li><a href="galeria.html">Galería</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>¿Cómo me postulo?</h1>
+    </header>
+
+    <div class="contenido">
+        <p>¿Tenés ganas de participar en el Festi 2025? Elegí tu forma de postularte:</p>
+        <button class="btn-postularme" onclick="mostrarVentana()">Postularme</button>
+    </div>
+
+    <div id="ventanaPostulacion" class="ventana">
+        <span class="cerrar-ventana" onclick="cerrarVentana()">&times;</span>
+        <h2>¿Para qué te querés postular?</h2>
+        <div class="opciones">
+            <div class="opcion" onclick="mostrarInstructivo('bailar')">
+                <div class="icono">🕺</div>
+                <div class="titulo">Bailar</div>
+                <div class="texto">¡Mostrá tus pasos!</div>
+            </div>
+            <div class="opcion" onclick="mostrarInstructivo('cantar')">
+                <div class="icono">🎤</div>
+                <div class="titulo">Cantar</div>
+                <div class="texto">¡Tu voz al frente!</div>
+            </div>
+            <div class="opcion" onclick="mostrarInstructivo('grupo')">
+                <div class="icono">🎸</div>
+                <div class="titulo">Tocar en grupo</div>
+                <div class="texto">¡La banda en escena!</div>
+            </div>
+            <div class="opcion" onclick="mostrarInstructivo('musico-ayuda')">
+                <div class="icono">🎼</div>
+                <div class="titulo">Ofrecerse como músico</div>
+                <div class="texto">¿Alguien necesita música?</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="instructivo" class="instructivo"></div>
+
+
+    <script>
+        function mostrarVentana() {
+            document.getElementById('ventanaPostulacion').classList.toggle('mostrar');
+            document.getElementById('instructivo').classList.remove('mostrar');
+        }
+
+        function mostrarInstructivo(tipo) {
+            const instructivo = document.getElementById('instructivo');
+            let contenido = '';
+            const formularioBailar = '<a href="https://forms.gle/JTQNQKmcBDRx5sE16" style="color: #ff00cc; text-decoration: underline;" target="_blank">formulario</a>';
+            const formularioCantar = '<a href="https://forms.gle/AgAE5fsinqL1AG2m9" style="color: #ff00cc; text-decoration: underline;" target="_blank">formulario</a>';
+            const formularioGrupo = '<a href="https://forms.gle/phpdnsPsEHeqdvJe7" style="color: #ff00cc; text-decoration: underline;" target="_blank">formulario</a>';
+            const formularioMusicoAyuda = '<a href="https://forms.gle/M7TynLWHdnuHMy937" style="color: #ff00cc; text-decoration: underline;" target="_blank">formulario</a>';
+
+            if (tipo === 'bailar') {
+                contenido = `
+                    <h3>Pasos para postularte como bailarín:</h3>
+                    <ol>
+                        <li>Completá el ${formularioBailar} con tu nombre y curso.</li>
+                        <li>Contanos qué tipo de baile vas a hacer (hip hop, tango, free, etc).</li>
+                        <li>Subí un video corto o dejá el link a tu muestra.</li>
+                        <li>Esperá la aprobación del equipo organizador.</li>
+                    </ol>
+                `;
+            } else if (tipo === 'cantar') {
+                contenido = `
+                    <h3>Pasos para postularte como cantante:</h3>
+                    <ol>
+                        <li>Completá el ${formularioCantar} con tus datos.</li>
+                        <li>Indicá si cantás con pista o a capella.</li>
+                        <li>Subí un video o audio de muestra.</li>
+                        <li>Te confirmaremos por correo.</li>
+                    </ol>
+                `;
+            } else if (tipo === 'grupo') {
+                contenido = `
+                    <h3>Pasos para postularte en grupo:</h3>
+                    <ol>
+                        <li>Un integrante llena el ${formularioGrupo} a nombre del grupo.</li>
+                        <li>Indicá qué instrumentos usan y quién hace qué.</li>
+                        <li>Suban un video tocando juntos (puede ser casero).</li>
+                        <li>Una vez aprobado, coordinamos prueba de sonido.</li>
+                    </ol>
+                `;
+            } else if (tipo === 'musico-ayuda') {
+                contenido = `
+                    <h3>¿Querés ofrecer tu ayuda musical?</h3>
+                    <p>¡Genial! Si querés ofrecerte como músico para otros participantes:</p>
+                    <ol>
+                        <li>Completá el ${formularioMusicoAyuda} indicando tu nombre, curso e instrumento(s) que tocás.</li>
+                        <li>Si tenés alguna preferencia de género musical, ¡mencionala!</li>
+                        <li>Dejá tu información de contacto para que otros puedan comunicarse con vos.</li>
+                        <li>Tu oferta será visible para otros participantes que necesiten un músico.</li>
+                    </ol>
+                    <p>¡Gracias por tu espíritu colaborativo!</p>
+                `;
+            }
+
+            instructivo.innerHTML = contenido;
+            instructivo.classList.add('mostrar');
+        }
+
+        function cerrarVentana() {
+            document.getElementById('ventanaPostulacion').classList.remove('mostrar');
+            document.getElementById('instructivo').classList.remove('mostrar');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>
+

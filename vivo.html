@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>En Vivo - Festi 2025</title>
+<style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #0f0f0f;
+            color: #fff;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #1a1a1a;
+            padding: 15px 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+            gap: 15px;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            font-size: 0.9em;
+            padding: 8px 12px;
+        }
+
+        nav ul li a:hover {
+            color: #ff00cc;
+        }
+
+        .main-content {
+            padding-top: 80px; /* Para no quedar debajo de la navegación fija */
+            padding-bottom: 30px;
+            width: 95%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .live-section {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px #333;
+            text-align: center;
+            display: flex; /* Para organizar video y chat uno al lado del otro en pantallas grandes */
+            flex-direction: column; /* Por defecto, apilar en pantallas pequeñas */
+            align-items: center; /* Centrar elementos horizontalmente */
+            gap: 20px; /* Espacio entre video y chat */
+        }
+
+        .live-section h2 {
+            color: #ff4de3;
+            margin-bottom: 15px;
+            width: 100%; /* Para que el título ocupe todo el ancho */
+        }
+
+        /* Estilos para el contenido en vivo */
+        .live-stream-container {
+            margin-top: 10px; /* Un poco de espacio desde el título */
+            width: 100%;
+            max-width: 800px;
+            border-radius: 8px;
+            overflow: hidden; /* Para que el borde redondeado del contenedor afecte al iframe */
+        }
+
+        .live-stream-container iframe {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9; /* Proporción común para videos */
+            border: none;
+        }
+
+        .live-chat-container {
+            margin-top: 10px; /* Un poco de espacio desde el título o el video */
+            width: 100%;
+            max-width: 400px; /* Ancho típico para un chat */
+            border-radius: 8px;
+            overflow: hidden; /* Para que el borde redondeado del contenedor afecte al iframe */
+        }
+
+        .live-chat-container iframe {
+            display: block;
+            width: 100%;
+            height: 400px; /* Altura del chat */
+            border: none;
+        }
+
+        .event-info-container {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px #333;
+            text-align: left;
+        }
+
+        .event-info-container h2 {
+            color: #b580ff;
+            margin-bottom: 15px;
+            text-align: center; /* Centrar el título de la sección */
+        }
+
+        .event-info-container ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .event-info-container li {
+            padding: 8px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .event-info-container li:last-child {
+            border-bottom: none;
+        }
+
+        /* Media query para pantallas más grandes (ej: 768px) para mostrar video y chat uno al lado del otro */
+        @media (min-width: 768px) {
+            .live-section {
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex-start; /* Alinear video y chat en la parte superior */
+                gap: 20px;
+            }
+            .live-stream-container {
+                flex-grow: 2; /* Ocupa más espacio */
+                max-width: none; /* Permite crecer */
+                margin-top: 0; /* Resetear margen superior */
+            }
+            .live-chat-container {
+                flex-grow: 1;
+                max-width: none;
+                margin-top: 0; /* Resetear margen superior */
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="como-me-postulo.html">¿Cómo Me Postulo?</a></li>
+            <li><a href="organizadores.html">Organizadores</a></li>
+            <li><a href="rifas-y-sorteos.html">¿Rifas y Sorteos?</a></li>
+            <li><a href="contactanos.html">Contáctanos</a></li>
+            <li><a href="vivo.html">En Vivo</a></li>
+            <li><a href="galeria.html">Galería</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <section class="live-section">
+            <h2>¡Ahora en Vivo!</h2>
+            <div class="live-stream-container">
+                <iframe src="https://youtu.be/KuE0jjmNXRs" title="Video en vivo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="live-chat-container">
+                <iframe src="URL_DEL_CHAT_EN_VIVO" frameborder="0"></iframe>
+            </div>
+        </section>
+
+        <section class="live-section event-info-container">
+            <h2>Próximos Eventos en Vivo</h2>
+            <ul>
+                <li>[Fecha y Hora] - [Descripción del evento]</li>
+                <li>[Fecha y Hora] - [Descripción del evento]</li>
+                <li>...</li>
+            </ul>
+        </section>
+    </div>
+
+    </body>
+</html>

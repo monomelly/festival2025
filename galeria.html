@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería - Festi 2025</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #0f0f0f;
+            color: #fff;
+        }
+
+        /* Barra de navegación principal */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #1a1a1a;
+            padding: 10px 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+            gap: 15px;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            font-size: 0.9em;
+            padding: 8px 12px;
+        }
+
+        nav ul li a:hover {
+            color: #ff00cc;
+        }
+
+        .gallery-header {
+            margin-top: 60px;
+            background-color: rgb(24, 23, 23);
+            border-bottom: 1px solid #555;
+            position: relative;
+        }
+
+        .gallery-tabs {
+            display: flex;
+            overflow-x: auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .gallery-tabs button {
+            background-color: #333; /* Fondo base de las pestañas inactivas */
+            color: #ddd;
+            border: none;
+            padding: 10px 15px;
+            margin-right: 2px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+            border-radius: 5px 5px 0 0;
+            position: relative;
+            z-index: 11;
+        }
+
+        .gallery-tabs button.active {
+            color: #ff4de3;
+            background-color: #1a1a1a; /* Fondo más oscuro */
+            border-bottom: none;
+            margin-bottom: -5px; /* Subir ligeramente */
+            box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.5); /* Sombra para elevación */
+            /* Revertimos los cambios de tamaño para evitar el "entrecierre" */
+            font-size: 1em;
+            padding: 10px 15px;
+        }
+
+        .browser-toolbar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background-color: #333; /* Fondo base de la barra de herramientas */
+        }
+
+        .browser-address-bar {
+            flex-grow: 1;
+            background-color: #333; /* Fondo del buscador */
+            border: 1px solid #444;
+            color: #eee;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        .browser-buttons {
+            display: flex;
+            gap: 5px;
+        }
+
+        .browser-button {
+            background: none;
+            color: #eee;
+            border: 1px solid #444;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8em;
+        }
+
+        .browser-address-bar {
+            flex-grow: 1;
+            background-color: #333;
+            border: 1px solid #444;
+            color: #eee;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        .main-content {
+            padding-top: 0; /* Ajustado */
+            padding-bottom: 30px;
+            width: 95%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-year {
+            display: none;
+            padding: 20px;
+            background-color: #1a1a1a;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+            margin-top: -1px; /* Para conectar visualmente */
+        }
+
+        .gallery-year.active {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajustado el minmax */
+            gap: 10px;
+        }
+
+        .gallery-item {
+            position: relative; /* Necesario para posicionar el video absolutamente */
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: opacity 0.3s ease-in-out; /* Transición suave para la opacidad */
+        }
+
+        .overlay-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cubre todo el contenedor */
+            opacity: 0; /* Inicialmente invisible */
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .gallery-item:hover img {
+            opacity: 0; /* Oculta la imagen al hacer hover */
+        }
+
+        .gallery-item:hover .overlay-video {
+            opacity: 1; /* Muestra el video al hacer hover */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="como-me-postulo.html">¿Cómo Me Postulo?</a></li>
+            <li><a href="organizadores.html">Organizadores</a></li>
+            <li><a href="rifas-y-sorteos.html">¿Rifas y Sorteos?</a></li>
+            <li><a href="contactanos.html">Contáctanos</a></li>
+            <li><a href="vivo.html">En Vivo</a></li>
+            <li><a href="galeria.html">Galería</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <div class="gallery-header">
+            <div class="gallery-tabs">
+                <button onclick="mostrarGaleria('2024')" class="active">2024</button>
+                <button onclick="mostrarGaleria('2025')">2025</button>
+            </div>
+            <div class="browser-toolbar">
+                <div class="browser-buttons">
+                    <button class="browser-button" onclick="navegarGaleria('atras')">←</button>
+                    <button class="browser-button" onclick="navegarGaleria('adelante')">→</button>
+                    <button class="browser-button">⟳</button>
+                </div>
+                <input type="text" class="browser-address-bar" value="galeria/2024" readonly>
+            </div>
+        </div>
+
+        <div id="galeria-2024" class="gallery-year active">
+            <div class="gallery-item">
+                <img src="galeria/1.JPG" alt="Foto 2024 1">
+                <video src="galeria/1.MOV" loop muted autoplay class="overlay-video"></video>
+            </div>
+            <div class="gallery-item">
+                <img src="galeria/2.jpg" alt="Foto 2024 2">
+            </div>
+            <div class="gallery-item">
+                <img src="galeria/3.jpg" alt="Foto 2024 3">
+                <video src="galeria/3.MOV" loop muted autoplay class="overlay-video"></video>
+            </div>
+            <div class="gallery-item">
+                <img src="galeria/4.JPG" alt="Foto 2024 4">
+                <video src="galeria/4.MOV" loop muted autoplay class="overlay-video"></video>
+            </div>
+            <div class="gallery-item">
+                <img src="galeria/5.jpg" alt="Foto 2024 5">
+                <video src="galeria/5.mov" loop muted autoplay class="overlay-video"></video>
+            </div>
+            <div class="gallery-item">
+                <img src="galeria/6.jpg" alt="Foto 2024 6">
+                <video src="galeria/6.mov" loop muted autoplay class="overlay-video"></video>
+            </div>
+            <div class="gallery-item">
+                <img src="galeria/7.jpg" alt="Foto 2024 7">
+                <video src="galeria/7.mov" loop muted autoplay class="overlay-video"></video>
+            </div>
+        </div>
+
+        <div id="galeria-2025" class="gallery-year">
+            <div class="gallery-item">
+                <img src="placeholder-image.jpg" alt="Foto 2025">
+                <video src="ruta/al/video9.mp4" loop muted autoplay class="overlay-video"></video>
+            </div>
+            <div class="gallery-item">
+                <img src="placeholder-image.jpg" alt="Foto 2025">
+                <video src="ruta/al/video10.mp4" loop muted autoplay class="overlay-video"></video>
+            </div>
+            <div class="gallery-item">
+                <img src="placeholder-image.jpg" alt="Foto 2025">
+                <video src="ruta/al/video11.mp4" loop muted autoplay class="overlay-video"></video>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const añosGaleria = ['2024', '2025'];
+        let indiceActual = 0;
+
+        function mostrarGaleria(año) {
+            const galerias = document.querySelectorAll('.gallery-year');
+            const botones = document.querySelectorAll('.gallery-tabs button');
+            const addressBar = document.querySelector('.browser-address-bar');
+
+            galerias.forEach(galeria => {
+                galeria.classList.remove('active');
+            });
+            botones.forEach(boton => {
+                botones.forEach(b => b.classList.remove('active'));
+                for (let i = 0; i < añosGaleria.length; i++) {
+                    if (añosGaleria[i] === año) {
+                        botones[i].classList.add('active');
+                        indiceActual = i;
+                        break;
+                    }
+                }
+            });
+
+            document.getElementById(`galeria-${año}`).classList.add('active');
+            addressBar.value = `galeria/${año}`;
+        }
+
+        function navegarGaleria(direccion) {
+            if (direccion === 'atras') {
+                indiceActual--;
+                if (indiceActual < 0) {
+                    indiceActual = añosGaleria.length - 1;
+                }
+            } else if (direccion === 'adelante') {
+                indiceActual++;
+                if (indiceActual >= añosGaleria.length) {
+                    indiceActual = 0;
+                }
+            }
+            mostrarGaleria(añosGaleria[indiceActual]);
+        }
+
+        // Inicializar el índice al cargar la página
+        window.onload = () => {
+            const añoInicial = document.querySelector('.gallery-tabs button.active').textContent;
+            indiceActual = añosGaleria.indexOf(añoInicial);
+        };
+    </script>
+
+</body>
+</html>

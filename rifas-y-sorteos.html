@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Rifas y Sorteos? - Festi 2025</title>
+    <style>
+        /* ---  ESTILOS GENERALES  ---  */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #0f0f0f;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #1a1a1a;
+            padding: 15px 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+            gap: 15px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+            gap: 15px;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            white-space: nowrap;
+            font-size: 0.9em;
+            padding: 8px 12px;
+        }
+
+        nav ul li a:hover {
+            color: #ff00cc;
+        }
+
+        header {
+            margin-top: 100px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #ff4de3;
+            margin-bottom: 10px;
+        }
+
+        .rifas-section {
+            background-color: #1a1a1a;
+            margin: 30px auto;
+            padding: 30px 20px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 1000px;
+            box-shadow: 0 0 15px #b580ffaa;
+        }
+
+        .rifas-section h2 {
+            color: #b580ff;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .rifas-section p {
+            color: #ddd;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .sorteos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .sorteo-item {
+            text-align: center;
+            background-color: #292929;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            height: 280px;
+        }
+
+        .sorteo-item h3 {
+            color: #fff;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.4em;
+        }
+
+        .sorteo-item p {
+            color: #bbb;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+        }
+
+        .participar-button {
+            display: inline-block;
+            background-color: #ff00cc;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .participar-button:hover {
+            background-color: #e600b8;
+        }
+
+        /* ---  ESTILOS DEL MODAL  ---  */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-contenido {
+            background-color: #1a1a1a;
+            color: #ddd;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px #b580ffaa;
+            width: 80%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .modal-contenido h2 {
+            color: #b580ff;
+            font-size: 2em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .modal-contenido p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .modal-contenido ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        .modal-contenido li {
+            margin-bottom: 8px;
+        }
+
+        .cerrar-modal {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .cerrar-modal:hover,
+        .cerrar-modal:focus {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* ---  ESTILOS PARA EL EFECTO DE VOLTEO  ---  */
+        .flip-container {
+            perspective: 1000px;
+        }
+
+        .flipper {
+            transition: 0.6s transform;
+            transform-style: preserve-3d;
+            position: relative;
+            height: 100%;
+        }
+
+        .flip-container.girar:hover .flipper {
+            transform: rotateY(180deg);
+        }
+
+        .front,
+        .back {
+            backface-visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .front {
+            z-index: 2;
+            transition: filter 0.3s;
+        }
+
+        .back {
+            transform: rotateY(180deg);
+        }
+
+        .back ol {
+            padding-left: 20px;
+            text-align: left;
+        }
+
+         /* ---  ESTILOS PARA EL CONTENIDO "BLOQUEADO"  ---  */
+        .blocked-front h3 {
+            font-size: 1.5em;
+            font-weight: normal;
+            color: #aaa;
+        }
+
+        .blocked-front p {
+            font-size: 1em;
+            color: #888;
+        }
+
+        .blocked-front {
+            filter: blur(5px);
+        }
+
+        /* Eliminamos esta regla para que el blur del front persista en hover del contenedor */
+        /* .flip-container.girar:hover .flipper .front.blocked-front {
+            filter: none;
+        } */
+
+        .blurred {
+            filter: blur(5px) !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <audio id="musica" loop>
+            <source src="tiny-desk-PyC.mp3" type="audio/mpeg">
+            Tu navegador no soporta audio.
+    </audio>
+
+        <audio id="musicaSecundaria" loop>
+             <source src="back-in-back.mp3" type="audio/mpeg">
+            Tu navegador no soporta audio.
+        </audio>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="como-me-postulo.html">¿Cómo Me Postulo?</a></li>
+            <li><a href="organizadores.html">Organizadores</a></li>
+            <li><a href="rifas-y-sorteos.html">¿Rifas y Sorteos?</a></li>
+            <li><a href="contactanos.html">Contáctanos</a></li>
+            <li><a href="vivo.html">En Vivo</a></li>
+            <li><a href="galeria.html">Galería</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>¡Rifas y Sorteos del Festi 2025!</h1>
+        <p>Se vienen altos premios del FESTI… ¿te los vas a perder?</p>
+    </header>
+
+    <section class="rifas-section">
+        <h2>¿Qué podés ganar?</h2>
+        <p>Este año tenemos sorteos y rifas espectaculares gracias a nuestros colaboradores.</p>
+
+        <div class="sorteos-grid">
+
+            <div class="sorteo-item flip-container girar" data-sorteo="rifaPadre">
+                <div class="flipper">
+                    <div class="front">
+                        <h3>Rifa Día del Padre</h3>
+                        <p>¡Un regalo especial!</p>
+                        <a href="#" class="participar-button" onclick="mostrarDetalles('Rifa Día del Padre')">¡Participar!</a>
+                    </div>
+                    <div class="back">
+                        <h4>Premios:</h4>
+                        <ol>
+                            <li>Set Matero</li>
+                            <li>Kit de Desayuno</li>
+                            <li>Auriculares Bluetooth</li>
+                        </ol>
+                        <a href="#" class="participar-button" onclick="mostrarDetalles('Rifa Día del Padre')">¡Quiero
+                                Ganar!</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sorteo-item flip-container girar" data-sorteo="">
+                <div class="flipper">
+                    <div class="front blocked-front">
+                        <h3></h3>
+                        <p>Próximamente...</p>
+                        <a href="#" class="participar-button" onclick="mostrarDetalles('Próximamente...')">¡Participar!</a>
+                    </div>
+                    <div class="back blocked-front">
+                        <h4>Premios:</h4>
+                        <ol>
+                            <li>Próximamente...</li>
+                            <li>Próximamente...</li>
+                            <li>Próximamente...</li>
+                        </ol>
+                        <a href="#" class="participar-button" onclick="mostrarDetalles('Próximamente...')">¡Quiero Ganar!</a>
+                    </div>
+                </div>
+            </div>
+
+<div class="sorteo-item flip-container girar" data-sorteo="">
+                <div class="flipper">
+                    <div class="front blocked-front">
+                        <h3></h3>
+                        <p>Próximamente...</p>
+                        <a href="#" class="participar-button" onclick="mostrarDetalles('Próximamente...')">¡Participar!</a>
+                    </div>
+                    <div class="back blocked-front">
+                        <h4>Premios:</h4>
+                        <ol>
+                            <li>Próximamente...</li>
+                            <li>Próximamente...</li>
+                            <li>Próximamente...</li>
+                        </ol>
+                        <a href="#" class="participar-button" onclick="mostrarDetalles('Próximamente...')">¡Quiero Ganar!</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sorteo-item flip-container girar" data-sorteo="">
+                <div class="flipper">
+                    <div class="front blocked-front">
+                        <h3></h3>
+                        <p>Próximamente...</p>
+                        <a href="#" class="participar-button" onclick="mostrarDetalles('Próximamente...')">¡Participar!</a>
+                    </div>
+                    <div class="back blocked-front">
+                        <h4>Premios:</h4>
+                        <ol>
+                            <li>Próximamente...</li>
+                            <li>Próximamente...</li>
+                            <li>Próximamente...</li>
+                        </ol>
+                        <a href="#" class="participar-button" onclick="mostrarDetalles('Próximamente...')">¡Quiero Ganar!</a>
+                    </div>
+                </div>
+            </div>
+
+           <div class="sorteo-item flip-container girar" data-sorteo="">
+                <div class="flipper">
+                    <div class="front blocked-front">
+                        <h3></h3>
+                        <p>Próximamente...</p>
+                        <a href="#" class="participar-button" onclick="mostrarDetalles('Próximamente...')">¡Participar!</a>
+                    </div>
+                    <div class="back blocked-front">
+                        <h4>Premios:</h4>
+                        <ol>
+                            <li>Próximamente...</li>
+                            <li>Próximamente...</li>
+                            <li>Próximamente...</li>
+                        </ol>
+                        <a href="#" class="participar-button" onclick="mostrarDetalles('Próximamente...')">¡Quiero Ganar!</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sorteo-item flip-container girar" data-sorteo="">
+                <div class="flipper">
+                    <div class="front blocked-front">
+                        <h3></h3>
+                        <p>Próximamente...</p>
+                        <a href="#" class="participar-button" onclick="mostrarDetalles('Próximamente...')">¡Participar!</a>
+                    </div>
+                    <div class="back blocked-front">
+                        <h4>Premios:</h4>
+                        <ol>
+                            <li>Próximamente...</li>
+                            <li>Próximamente...</li>
+                            <li>Próximamente...</li>
+                        </ol>
+                        <a href="#" class="participar-button" onclick="mostrarDetalles('Próximamente...')">¡Quiero Ganar!</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sorteo-item flip-container girar" data-sorteo="">
+                <div class="flipper">
+                    <div class="front blocked-front">
+                        <h3></h3>
+                        <p>Próximamente...</p>
+                        <a href="#" class="participar-button" onclick="mostrarDetalles('Próximamente...')">¡Participar!</a>
+                    </div>
+                    <div class="back blocked-front">
+                        <h4>Premios:</h4>
+                        <ol>
+                            <li>Próximamente...</li>
+                            <li>Próximamente...</li>
+                            <li>Próximamente...</li>
+                        </ol>
+                        <a href="#" class="participar-button" onclick="mostrarDetalles('Próximamente...')">¡Quiero Ganar!</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sorteo-item flip-container girar" data-sorteo="">
+                <div class="flipper">
+                    <div class="front blocked-front">
+                        <h3></h3>
+                        <p>Próximamente...</p>
+                        <a href="#" class="participar-button" onclick="mostrarDetalles('Próximamente...')">¡Participar!</a>
+                    </div>
+                    <div class="back blocked-front">
+                        <h4>Premios:</h4>
+                        <ol>
+                            <li>Próximamente...</li>
+                            <li>Próximamente...</li>
+                            <li>Próximamente...</li>
+                        </ol>
+                        <a href="#" class="participar-button" onclick="mostrarDetalles('Próximamente...')">¡Quiero Ganar!</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sorteo-item flip-container girar" data-sorteo="">
+                <div class="flipper">
+                    <div class="front blocked-front">
+                        <h3></h3>
+                        <p>Próximamente...</p>
+                        <a href="#" class="participar-button" onclick="mostrarDetalles('Próximamente...')">¡Participar!</a>
+                    </div>
+                    <div class="back blocked-front">
+                        <h4>Premios:</h4>
+                        <ol>
+                            <li>Próximamente...</li>
+                            <li>Próximamente...</li>
+                            <li>Próximamente...</li>
+                        </ol>
+                        <a href="#" class="participar-button" onclick="mostrarDetalles('Próximamente...')">¡Quiero Ganar!</a>
+                    </div>
+                </div>
+            </div>
+
+    <div id="miModal" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar-modal" onclick="cerrarModal()">&times;</span>
+            <h2 id="modalTitulo"></h2>
+            <div id="modalDetalles">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Obtener el modal
+        var modal = document.getElementById('miModal');
+
+        // Función para mostrar el modal con detalles
+        function mostrarDetalles(nombreSorteo) {
+            var modalTitulo = document.getElementById('modalTitulo');
+            var modalDetalles = document.getElementById('modalDetalles');
+
+            modalTitulo.textContent = nombreSorteo; // Solo el nombre del sorteo
+
+            // Aquí puedes agregar los detalles específicos de cada sorteo
+            let detalles = "";
+            switch (nombreSorteo) {
+                case 'Rifa Día del Padre':
+                    detalles = "<p>Valor: $1500</p> <p>El sorteo se realizará el día viernes 13/6. Nos comunicaremos con los ganadores por correo electrónico.</p><p>Premios:</p><ul><li>Set Matero</li><li>Kit de Desayuno</li><li>Auriculares Bluetooth</li></ul>";
+                    break;
+                // Agrega más casos para otros sorteos
+                default:
+                    detalles = "<p>Próximamente más detalles.</p>";
+            }
+
+            modalDetalles.innerHTML = detalles;
+            modal.style.display = "block"; // Mostrar el modal
+        }
+
+        // Función para cerrar el modal
+        function cerrarModal() {
+            modal.style.display = "none";
+        }
+
+        // Cerrar el modal si el usuario hace clic fuera de él
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // ---  (Las funciones de volteo y desenfoque, si las quieres)  ---
+        function blurOtherItems(item) {
+            let sorteos = document.querySelectorAll('.sorteo-item');
+            sorteos.forEach(sorteo => {
+                if (sorteo !== item) {
+                    sorteo.classList.add('blurred');
+                }
+            });
+        }
+
+        function clearBlur() {
+            let sorteos = document.querySelectorAll('.sorteo-item');
+            sorteos.forEach(sorteo => sorteo.classList.remove('blurred'));
+        }
+    </script>
+
+</body>
