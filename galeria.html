@@ -5,53 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galería - Festi 2025</title>
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #0f0f0f;
-            color: #fff;
-        }
+                    body, html {
+                margin: 0;
+                padding: 0;
+                font-family: 'Arial', sans-serif;
+                background-color: #0f0f0f;
+                color: #fff;
+                overflow-x: hidden; /* Evita la barra de desplazamiento horizontal */
+            }
 
-        /* Barra de navegación principal */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: #1a1a1a;
-            padding: 10px 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-        }
+            nav {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                background-color: #1a1a1a;
+                padding: 10px 0; /* Reduje el padding vertical */
+                z-index: 1000;
+                display: flex;
+                justify-content: center;
+            }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            margin: 0;
-            padding: 0;
-            white-space: nowrap;
-            gap: 15px;
-        }
+            nav ul {
+                list-style: none;
+                display: flex;
+                flex-wrap: wrap; /* Permite que los elementos del menú pasen a la siguiente línea en pantallas pequeñas */
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+                padding: 0;
+                white-space: nowrap;
+                gap: 10px; /* Reduje el gap */
+            }
 
-        nav ul li {
-            margin: 0 20px;
-        }
+            nav ul li {
+                margin: 0; /* Elimine el margen horizontal de los ítems de la lista */
+            }
 
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-            transition: color 0.3s;
-            font-size: 0.9em;
-            padding: 8px 12px;
-        }
+            nav ul li a {
+                color: #fff;
+                text-decoration: none;
+                font-weight: bold;
+                text-transform: uppercase;
+                transition: color 0.3s;
+                white-space: nowrap;
+                font-size: 0.85em; /* Reduje el tamaño de la fuente */
+                padding: 6px 10px; /* Reduje el padding del enlace */
+                border-radius: 5px; /* Añadí un pequeño borde redondeado */
+            }
 
-        nav ul li a:hover {
-            color: #ff00cc;
-        }
+            nav ul li a:hover {
+                color: #ff00cc;
+            }
 
         .gallery-header {
             margin-top: 60px;
