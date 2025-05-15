@@ -103,7 +103,7 @@
             width: 100%;
             background-color: #1a1a1a;
             box-shadow: 0 4px 10px #00000066;
-            padding: 30px 20px;
+            padding: 40px 20px;
             text-align: center;
             transition: top 0.5s ease; /* Esto es lo que crea la animación de deslizamiento */
             z-index: 2000;
@@ -156,34 +156,36 @@
         }
 
         .instructivo {
-            background-color: #1a1a1a;
-            margin: 20px auto;
-            padding: 30px 20px;
-            border-radius: 15px;
-            width: 90%;
-            max-width: 900px;
-            text-align: left;
-            box-shadow: 0 0 15px #b580ffaa;
-            display: none;
-        }
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1a1a1a;
+    padding: 30px 20px;
+    border-radius: 15px 15px 0 0; /* Bordes redondeados solo en la parte superior */
+    text-align: left;
+    box-shadow: 0 -4px 15px #b580ffaa; /* Sombra en la parte superior */
+    display: none;
+    z-index: 1001; /* Asegurarse de que esté por encima de otros elementos si es necesario */
+    box-sizing: border-box; /* Para que padding no afecte el ancho total */
+}
 
-        .instructivo.mostrar {
-            display: block;
-        }
+.instructivo.mostrar {
+    display: block;
+}
 
-        .instructivo h3 {
-            color: #b580ff;
-            margin-bottom: 10px;
-        }
+.instructivo h3 {
+    color: #b580ff;
+    margin-bottom: 10px;
+}
 
-        .instructivo ol {
-            padding-left: 20px;
-        }
+.instructivo ol {
+    padding-left: 20px;
+}
 
-        .instructivo li {
-            margin-bottom: 10px;
-        }
-
+.instructivo li {
+    margin-bottom: 10px;
+}
         .cerrar-ventana {
             position: absolute;
             top: 12px;
@@ -317,6 +319,8 @@
 
             instructivo.innerHTML = contenido;
             instructivo.classList.add('mostrar');
+            // Desplazar la vista al instructivo
+            instructivo.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
         function cerrarVentana() {
