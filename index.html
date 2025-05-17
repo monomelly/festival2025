@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Festi 2025</title>
         <style>
-            body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            /* Nueva forma de agregar la imagen de fondo */
-            background-image: url('hojas.png'); /* Ajusta la ruta si es necesario */
-            background-size: cover; /* Cubre todo el fondo */
-            background-repeat: no-repeat; /* No se repite */
-            background-attachment: fixed; /* Fijo para que no se desplace con el contenido */
-            background-color: #e0ffff; /* Un color de respaldo por si la imagen no carga */
-            color: #333;
-            overflow-x: hidden;
-        }
+           body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-image: url('hojas.png'); /* Ajusta la ruta si es necesario */
+    /* Probando con 'contain' para ver la imagen completa */
+    background-size: contain;
+    background-repeat: repeat; /* Podemos repetir la imagen si 'contain' deja espacios */
+    background-attachment: fixed;
+    background-color: #e0ffff;
+    color: #333;
+    overflow-x: hidden;
+}
 
             nav {
                 position: fixed;
