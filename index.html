@@ -5,141 +5,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Festi 2025</title>
         <style>
-           body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background-image: url('hojas.png'); /* Ajusta la ruta si es necesario */
-    /* Probando con 'contain' para ver la imagen completa */
-    background-size: contain;
-    background-repeat: repeat; /* Podemos repetir la imagen si 'contain' deja espacios */
-    background-attachment: fixed;
-    background-color: #e0ffff;
-    color: #333;
-    overflow-x: hidden;
-}
+            body, html {
+                margin: 0;
+                padding: 0;
+                font-family: 'Arial', sans-serif;
+                background-color: #0f0f0f;
+                color: #fff;
+                overflow-x: hidden; /* Evita la barra de desplazamiento horizontal */
+            }
 
             nav {
                 position: fixed;
                 top: 0;
                 width: 100%;
-                /* Fondo blanco semi-transparente con blur */
-                background-color: rgba(255, 255, 255, 0.8);
-                padding: 10px 0;
+                background-color: #1a1a1a;
+                padding: 10px 0; /* Reduje el padding vertical */
                 z-index: 1000;
                 display: flex;
                 justify-content: center;
-                backdrop-filter: blur(10px);
             }
 
             nav ul {
                 list-style: none;
                 display: flex;
-                flex-wrap: wrap;
+                flex-wrap: wrap; /* Permite que los elementos del menú pasen a la siguiente línea en pantallas pequeñas */
                 justify-content: center;
                 align-items: center;
                 margin: 0;
                 padding: 0;
                 white-space: nowrap;
-                gap: 15px;
+                gap: 10px; /* Reduje el gap */
+            }
+
+            nav ul li {
+                margin: 0; /* Elimine el margen horizontal de los ítems de la lista */
             }
 
             nav ul li a {
-                color: #333;
+                color: #fff;
                 text-decoration: none;
                 font-weight: bold;
                 text-transform: uppercase;
                 transition: color 0.3s;
                 white-space: nowrap;
-                font-size: 0.9em;
-                padding: 8px 12px;
-                border-radius: 20px;
-                /* Fondo suave para los enlaces de navegación en tono verde claro */
-                background-color: rgba(144, 238, 144, 0.2); /* LightGreen con transparencia */
+                font-size: 0.85em; /* Reduje el tamaño de la fuente */
+                padding: 6px 10px; /* Reduje el padding del enlace */
+                border-radius: 5px; /* Añadí un pequeño borde redondeado */
             }
 
             nav ul li a:hover {
-                color: #008000; /* Verde */
-                background-color: rgba(173, 216, 230, 0.3); /* LightBlue con transparencia */
+                color: #ff00cc;
             }
 
             header {
-                margin-top: 80px;
+                margin-top: 70px; /* Ajusté el margen superior para que no quede debajo de la navegación */
                 text-align: center;
-                padding: 30px 20px;
+                padding: 20px; /* Añadí un poco de padding al header */
             }
 
             header img {
-                width: 180px;
-                margin-bottom: 20px;
+                width: 150px; /* Reduje el tamaño del logo */
+                margin-bottom: 15px; /* Reduje el margen inferior del logo */
             }
 
             h1 {
-                font-size: 2.5em;
-                /* Color que recuerda al azul tropical */
-                color: #4682b4; /* SteelBlue */
-                margin-bottom: 15px;
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+                font-size: 2em; /* Reduje el tamaño del título */
+                color: #ff4de3;
+                margin-bottom: 10px; /* Añadí un poco de margen inferior al título */
             }
 
             .main-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 95%;
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 15px;
-            box-sizing: border-box;
-            /* Fondo blanco con un poco más de transparencia para dejar ver el fondo */
-            background-color: rgba(255, 255, 255, 0.85);
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-            backdrop-filter: blur(8px);
-            border-radius: 15px; /* Para que el fondo del contenido también tenga esquinas redondeadas */
-        }
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 95%;
+                max-width: 1200px;
+                margin: 20px auto;
+                padding: 0 10px; /* Añadí padding horizontal al contenedor principal */
+                box-sizing: border-box;
+            }
 
             .inicio, .que-espera, .info-festi, .spotify-playlist {
                 width: 100%;
                 max-width: 1000px;
-                margin-bottom: 30px;
-                border-radius: 15px;
-                padding: 20px;
+                margin-bottom: 20px; /* Reduje el margen inferior de las secciones */
+                border-radius: 10px; /* Reduje el radio del borde */
+                padding: 15px; /* Reduje el padding de las secciones */
                 box-sizing: border-box;
-                /* Fondo blanco muy suave */
-                background-color: rgba(255, 255, 255, 0.9);
+                background-color: #1a1a1a;
                 text-align: center;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-                backdrop-filter: blur(8px);
             }
 
             .inicio {
-                /* Sombra sutil en tono azul */
-                box-shadow: 0 0 15px rgba(70, 130, 180, 0.3); /* SteelBlue */
-                padding: 25px;
+                box-shadow: 0 0 10px #ff4de3aa; /* Reduje el resplandor */
+                padding: 20px 15px; /* Ajusté el padding interno */
             }
 
             .inicio h2 {
-                /* Color verde más presente */
-                color: #2e8b57; /* SeaGreen */
-                font-size: 1.8em;
-                margin-bottom: 15px;
+                color: #b580ff;
+                font-size: 1.5em; /* Reduje el tamaño del subtítulo */
+                margin-bottom: 10px; /* Reduje el margen inferior del subtítulo */
             }
 
             .inicio p {
-                font-size: 1.1em;
-                line-height: 1.6;
-                color: #555;
-                margin-bottom: 15px;
+                font-size: 1em; /* Reduje el tamaño del párrafo */
+                line-height: 1.5; /* Ajusté el interlineado */
+                color: #ddd;
+                margin-bottom: 10px; /* Reduje el margen inferior del párrafo */
             }
 
             .inicio img {
                 width: 100%;
-                max-height: 350px;
+                max-height: 300px; /* Reduje la altura máxima de la imagen */
                 object-fit: cover;
-                border-radius: 15px;
-                margin-top: 20px;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+                border-radius: 10px; /* Igualé el radio del borde */
+                margin-top: 15px; /* Reduje el margen superior de la imagen */
             }
 
             ul {
@@ -147,42 +127,41 @@
                 padding: 0;
                 text-align: left;
                 max-width: 600px;
-                margin: 15px auto;
+                margin: 10px auto; /* Añadí un poco de margen superior */
             }
 
             ul li {
-                margin: 10px 0;
-                font-size: 1.1em;
-                color: #555;
+                margin: 8px 0; /* Reduje el margen vertical de los ítems de la lista */
+                font-size: 1em; /* Reduje el tamaño de la fuente de la lista */
             }
 
             .cuenta {
-                font-size: 1.3em;
+                font-size: 1.2em; /* Reduje el tamaño de la fuente de la cuenta */
                 font-weight: bold;
-                color: #2e8b57; /* SeaGreen */
-                margin-top: 15px;
+                color: #ff4de3;
+                margin-top: 10px; /* Reduje el margen superior de la cuenta */
                 display: none;
             }
 
             #activarSonido {
                 position: fixed;
-                bottom: 20px;
-                right: 20px;
-                background-color: #4682b4; /* SteelBlue */
+                bottom: 15px; /* Ajusté la posición inferior */
+                right: 15px; /* Ajusté la posición derecha */
+                background-color: #ff00cc;
                 color: white;
                 border: none;
-                padding: 12px 20px;
-                border-radius: 10px;
-                font-size: 1em;
+                padding: 10px 15px; /* Reduje el padding del botón */
+                border-radius: 8px;
+                font-size: 0.9em; /* Reduje el tamaño de la fuente del botón */
                 cursor: pointer;
-                box-shadow: 0 0 10px rgba(70, 130, 180, 0.5);
+                box-shadow: 0 0 8px #ff00cc; /* Reduje el resplandor */
                 z-index: 2000;
             }
 
             .countdown-container {
                 position: fixed;
-                bottom: 70px;
-                right: -200px;
+                bottom: 60px;
+                right: -180px; /* Inicialmente oculto a la derecha (ajusta según el ancho) */
                 z-index: 9999;
                 display: flex;
                 align-items: center;
@@ -190,15 +169,15 @@
             }
 
             .countdown-container.open {
-                right: 15px;
+                right: 10px;
             }
 
             .countdown-toggle {
-                background-color: #2e8b57; /* SeaGreen */
+                background-color: #ff4de3;
                 color: white;
                 border: none;
-                border-radius: 10px 0 0 10px;
-                padding: 10px 10px;
+                border-radius: 8px 0 0 8px;
+                padding: 10px 8px;
                 cursor: pointer;
                 outline: none;
             }
@@ -220,106 +199,98 @@
 
             .countdown-box {
                 display: flex;
-                background-color: rgba(255, 255, 255, 0.8);
-                border: 2px solid #2e8b57; /* SeaGreen */
-                border-radius: 10px;
-                padding: 12px 18px;
-                box-shadow: 0 0 10px rgba(70, 130, 180, 0.3);
+                background-color: #1a1a1a;
+                border: 2px solid #ff4de3; /* Reduje el grosor del borde */
+                border-radius: 10px; /* Igualé el radio del borde */
+                padding: 10px 15px; /* Reduje el padding del contador */
+                box-shadow: 0 0 10px #ff4de3aa; /* Reduje el resplandor */
                 font-family: 'Courier New', monospace;
-                backdrop-filter: blur(5px);
             }
 
             .countdown-box div {
-                margin: 0 15px;
+                margin: 0 10px; /* Reduje el margen horizontal de los elementos del contador */
                 text-align: center;
             }
 
             .countdown-box span {
-                font-size: 2.2em;
+                font-size: 2em; /* Reduje el tamaño de la fuente de los números */
                 font-weight: bold;
-                color: #333;
+                color: #ffffff;
                 display: block;
             }
 
             .countdown-box small {
-                color: #2e8b57; /* SeaGreen */
-                font-size: 0.9em;
+                color: #ff4de3;
+                font-size: 0.8em; /* Reduje el tamaño de la fuente de las etiquetas */
             }
 
             .que-espera {
-                box-shadow: 0 0 15px rgba(46, 139, 87, 0.2); /* SeaGreen */
-                padding: 20px;
+                box-shadow: 0 0 10px #b580ffaa; /* Reduje el resplandor */
+                padding: 15px; /* Reduje el padding */
                 text-align: center;
             }
 
             .que-espera h3 {
-                color: #2e8b57; /* SeaGreen */
-                font-size: 1.5em;
-                margin-bottom: 15px;
+                color: #ff4de3;
+                font-size: 1.3em; /* Reduje el tamaño del subtítulo */
+                margin-bottom: 10px; /* Reduje el margen inferior */
             }
 
             .que-espera ul {
                 text-align: left;
-                margin-top: 15px;
+                margin-top: 10px; /* Añadí margen superior a la lista */
             }
 
             .info-festi {
-                box-shadow: 0 0 15px rgba(46, 139, 87, 0.2); /* SeaGreen */
-                padding: 25px 20px;
+                box-shadow: 0 0 10px #b580ffaa; /* Reduje el resplandor */
+                padding: 20px 15px; /* Ajusté el padding */
                 text-align: center;
             }
 
             .info-festi h2 {
-                color: #2e8b57; /* SeaGreen */
-                font-size: 1.8em;
-                margin-bottom: 15px;
+                color: #b580ff;
+                font-size: 1.5em; /* Reduje el tamaño del subtítulo */
+                margin-bottom: 10px; /* Reduje el margen inferior */
             }
 
             .info-festi p {
-                font-size: 1.1em;
-                line-height: 1.6;
-                color: #555;
+                font-size: 1em; /* Reduje el tamaño del párrafo */
+                line-height: 1.5; /* Ajusté el interlineado */
+                color: #ddd;
             }
 
             .social-media {
                 text-align: center;
-                margin-top: 20px;
-                margin-bottom: 25px;
+                margin-top: 15px; /* Reduje el margen superior */
+                margin-bottom: 20px; /* Reduje el margen inferior */
             }
 
             .social-media a {
                 display: inline-block;
-                margin: 0 10px;
+                margin: 0 8px; /* Reduje el margen horizontal */
             }
 
             .social-media img {
-                width: 40px;
-                height: 40px;
+                width: 36px; /* Reduje el tamaño de los iconos */
+                height: 36px;
                 vertical-align: middle;
-                opacity: 0.8;
-                transition: opacity 0.3s;
-            }
-
-            .social-media img:hover {
-                opacity: 1;
             }
 
             .faq-section {
-                background-color: rgba(255, 255, 255, 0.8);
-                color: #333;
-                padding: 20px;
-                border-radius: 10px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
-                width: 85%;
-                max-width: 350px;
+                background-color: #1a1a1a;
+                color: #fff;
+                padding: 15px; /* Reduje el padding */
+                border-radius: 8px; /* Reduje el radio del borde */
+                box-shadow: 0 0 8px #333; /* Reduje el resplandor */
+                width: 80%; /* Ajusté el ancho para hácerlo más adaptable */
+                max-width: 300px; /* Mantengo un máximo ancho */
                 position: fixed;
-                bottom: 20px;
-                left: 20px;
+                bottom: 15px; /* Ajusté la posición */
+                left: 15px; /* Ajusté la posición */
                 z-index: 1001;
                 transform: translateX(-110%);
                 transition: transform 0.3s ease-in-out;
-                font-size: 1em;
-                backdrop-filter: blur(8px);
+                font-size: 0.9em; /* Reduje el tamaño de la fuente */
             }
 
             .faq-section.open {
@@ -327,16 +298,15 @@
             }
 
             .faq-section h2 {
-                color: #2e8b57; /* SeaGreen */
+                color: #ff4de3;
                 text-align: center;
-                margin-bottom: 15px;
-                font-size: 1.5em;
+                margin-bottom: 10px; /* Reduje el margen inferior */
+                font-size: 1.3em; /* Reduje el tamaño del título */
             }
 
             .faq-item {
-                margin-bottom: 10px;
-                padding-bottom: 10px;
-                border-bottom: 1px solid #eee;
+                margin-bottom: 8px; /* Reduje el margen inferior */
+                padding-bottom: 8px; /* Reduje el padding inferior */
             }
 
             .faq-item:last-child {
@@ -347,10 +317,10 @@
 
             .faq-question {
                 background: none;
-                color: #555;
+                color: #ddd;
                 border: none;
-                padding: 8px 0;
-                font-size: 1em;
+                padding: 6px 0; /* Reduje el padding vertical */
+                font-size: 0.9em; /* Reduje el tamaño de la fuente */
                 font-weight: bold;
                 cursor: pointer;
                 width: 100%;
@@ -362,202 +332,260 @@
 
             .faq-question::before {
                 content: '?';
-                font-size: 1.2em;
-                margin-right: 10px;
-                color: #2e8b57; /* SeaGreen */
+                font-size: 1em; /* Reduje el tamaño del signo de pregunta */
+                margin-right: 8px; /* Reduje el margen derecho */
+                color: #ff4de3;
             }
 
             .faq-answer {
                 max-height: 0;
                 overflow: hidden;
                 transition: max-height 0.3s ease-out;
-                padding-top: 8px;
-                font-size: 0.95em;
-                line-height: 1.5;
-                color: #777;
+                padding-top: 6px; /* Reduje el padding superior */
+                font-size: 0.85em; /* Reduje el tamaño de la fuente */
+                line-height: 1.4;
             }
 
             .faq-question.active + .faq-answer {
                 max-height: 500px;
-                padding-bottom: 8px;
+                padding-bottom: 6px; /* Reduje el padding inferior */
             }
 
             /* Botón FAQ fijo */
             .faq-button {
                 position: fixed;
-                bottom: 20px;
-                left: 20px;
-                background-color: #2e8b57; /* SeaGreen */
+                bottom: 15px; /* Ajusté la posición */
+                left: 15px; /* Ajusté la posición */
+                background-color: #ff4de3;
                 color: white;
                 border: none;
-                width: 50px;
-                height: 50px;
+                width: 40px; /* Reduje el tamaño del botón */
+                height: 40px; /* Reduje el tamaño del botón */
                 border-radius: 50%;
-                font-size: 1.8em;
+                font-size: 1.5em; /* Reduje el tamaño del signo de pregunta */
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 cursor: pointer;
                 z-index: 1002;
-                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Reduje la sombra */
                 line-height: 1;
             }
 
             /* Botón Trivia fijo */
             .trivia-trigger-button {
                 position: fixed;
-                bottom: 80px; /* Ajustado para estar encima del FAQ */
-                left: 20px;
-                background-color: #4682b4; /* SteelBlue */
+                bottom: 65px; /* Ajusté para estar encima del FAQ */
+                left: 15px; /* Ajusté la posición */
+                background-color: #b580ff;
                 color: white;
                 border: none;
-                width: 50px;
-                height: 50px;
+                width: 40px; /* Reduje el tamaño del botón */
+                height: 40px; /* Reduje el tamaño del botón */
                 border-radius: 50%;
-                font-size: 1.5em;
+                font-size: 1.2em; /* Reduje el tamaño del icono */
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 cursor: pointer;
                 z-index: 1002;
-                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Reduje la sombra */
             }
 
             .trivia-trigger-button .joystick-icon {
-                font-size: 1.5em;
+                font-size: 1.2em; /* Reduje el tamaño del icono */
             }
 
-            /* Estilos para la Trivia */
+            /* Estilos para la Trivia (inicialmente oculto y fijo) */
             .trivia-section {
-                background-color: rgba(255, 255, 255, 0.8);
-                color: #333;
-                border-radius: 10px;
-                padding: 15px;
+                background-color: transparent; /* Fondo transparente inicialmente */
+                color: #eee;
+                border-radius: 8px; /* Reduje el radio del borde */
+                padding: 10px; /* Reduje el padding */
                 text-align: center;
                 overflow: hidden;
                 max-height: 0;
-                transition: max-height 0.3s ease-out, background-color 0.3s ease-in-out;
-                width: 85%;
-                max-width: 330px;
+                transition: max-height 0.3s ease-out, background-color 0.3s ease-in-out; /* Transición también para el background-color */
+                width: 80%; /* Ajusté el ancho */
+                max-width: 280px; /* Mantengo un máximo ancho */
                 position: fixed;
-                bottom: 140px; /* Ajustado para estar encima del botón trivia */
-                left: 20px;
+                bottom: 115px; /* Ajustado para estar encima del botón trivia */
+                left: 15px; /* Ajusté la posición */
                 z-index: 1001;
-                font-size: 1em;
-                backdrop-filter: blur(8px);
+                font-size: 0.9em; /* Reduje el tamaño de la fuente */
             }
 
             .trivia-section.open {
-                max-height: 500px;
-                background-color: rgba(255, 255, 255, 0.9);
+                max-height: 400px; /* Ajust
+                max-height: 400px; /* Ajusta según la cantidad de contenido */
+                background-color: #222; /* El fondo aparece al abrirse */
             }
 
             .joystick-icon {
-                font-size: 1.8em;
-                color: white;
+                font-size: 1.5em; /* Ajusté el tamaño del icono */
+                color: #b580ff;
             }
 
             .trivia-section h2 {
-                color: #4682b4; /* SteelBlue */
-                margin-bottom: 10px;
-                font-size: 1.3em;
+                color: #b580ff;
+                margin-bottom: 8px; /* Reduje el margen inferior */
+                font-size: 1.1em; /* Reduje el tamaño del título */
             }
 
             .trivia-question {
                 font-weight: bold;
-                margin-bottom: 5px;
-                font-size: 1em;
-                color: #555;
+                margin-bottom: 3px; /* Reduje el margen inferior */
+                font-size: 0.9em; /* Reduje el tamaño de la fuente */
             }
 
             .trivia-options button {
-                background-color: #f0f8ff;
-                color: #333;
-                border: 1px solid #add8e6;
-                padding: 6px 10px;
-                margin: 5px;
-                border-radius: 8px;
+                background-color: #333;
+                color: #eee;
+                border: none;
+                padding: 4px 8px; /* Reduje el padding de los botonesmargin: 2px; /* Reduje el margen de los botones */
+                border-radius: 5px;
                 cursor: pointer;
-                font-size: 0.9em;
+                font-size: 0.8em; /* Reduje el tamaño de la fuente de los botones */
                 transition: background-color 0.3s;
             }
 
             .trivia-options button:hover {
-                background-color: #e0ffff;
+                background-color: #555;
             }
 
             .trivia-answer {
-                margin-top: 8px;
+                margin-top: 6px; /* Reduje el margen superior */
                 font-weight: bold;
-                font-size: 0.9em;
-                color: #2e8b57; /* Verde para correcto */
+                font-size: 0.8em; /* Reduje el tamaño de la fuente */
             }
 
             /* Estilos para la playlist de Spotify */
             .spotify-playlist {
                 width: 95%;
-                max-width: 700px;
-                margin: 30px auto;
-                text-align: center;
-                background-color: rgba(255, 255, 255, 0.9);
-                border-radius: 15px;
-                padding: 20px;
+                max-width: 600px; /* Ajusté el ancho máximo */
+                margin: 20px auto; /* Reduje el margen vertical */
+                text-align: center; /* Centrar contenido inline como el iframe */
+                background-color: #1a1a1a; /* Fondo consistente */
+                border-radius: 10px; /* Igualé el radio del borde */
+                padding: 15px; /* Reduje el padding */
                 box-sizing: border-box;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-                backdrop-filter: blur(8px);
             }
 
             .spotify-playlist h2 {
-                color: #1ed760; /* Verde de Spotify */
-                margin-bottom: 15px;
-                font-size: 1.5em;
+                color: #1ed760; /* Color verde de Spotify */
+                margin-bottom: 10px; /* Reduje el margen inferior */
+                font-size: 1.3em; /* Reduje el tamaño del título */
             }
 
             /* Estilos para el iframe de Spotify */
             .spotify-playlist iframe {
                 border-radius:12px;
-                width: 100%;
-                height: 300px; /* Un poco más alto */
-                border: none;
+                width: 100%; /* Ocupar el ancho del contenedor */
+                height: 250px; /* Reduje la altura del iframe */
+                border: none; /* Opcional: quitar el borde del iframe */
             }
 
+            .countdown-container {
+                position: fixed;
+                bottom: 60px;
+                right: -180px; /* Inicialmente oculto a la derecha (ajusta según el ancho) */
+                z-index: 9999;
+                display: flex;
+                align-items: center;
+                transition: right 0.3s ease-in-out;
+            }
+
+            .countdown-container.open {
+                right: 10px;
+            }
+
+            .countdown-toggle {
+                background-color: #ff4de3;
+                color: white;
+                border: none;
+                border-radius: 8px 0 0 8px;
+                padding: 10px 8px;
+                cursor: pointer;
+                outline: none;
+            }
+
+            #toggle-countdown-btn {
+                font-size: 1.2em;
+                color: white;
+                background: none;
+                border: none;
+                padding: 0;
+                cursor: pointer;
+                outline: none;
+            }
+
+            .countdown-box-wrapper {
+                overflow: hidden;
+                border-radius: 10px;
+            }
+
+            .countdown-box {
+                display: flex;
+                background-color: #1a1a1a;
+                border: 2px solid #ff4de3;
+                border-radius: 10px;
+                padding: 10px 15px;
+                box-shadow: 0 0 10px #ff4de3aa;
+                font-family: 'Courier New', monospace;
+            }
+
+            .countdown-box div {
+                margin: 0 10px;
+                text-align: center;
+            }
+
+            .countdown-box span {
+                font-size: 2em;
+                font-weight: bold;
+                color: #ffffff;
+                display: block;
+            }
+
+            .countdown-box small {
+                color: #ff4de3;
+                font-size: 0.8em;
+            }
         .aviso-rifa {
-            background: linear-gradient(135deg, #ffdd59, #ff6f00); /* Colores más cálidos */
-            color: #333; /* Texto oscuro */
-            padding: 40px 20px;
-            text-align: center;
-            border-radius: 20px;
-            margin: 80px auto 40px auto;
-            max-width: 900px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-        }
+  background: linear-gradient(135deg, #ff4081, #9c27b0);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  border-radius: 20px;
+  margin: 80px auto 40px auto;
+  max-width: 900px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
 
-        .aviso-contenido h2 {
-            font-size: 2.2em; /* Un poco más grande */
-            margin-bottom: 15px;
-            color: #ff6f00; /* Acento de color */
-        }
+.aviso-contenido h2 {
+  font-size: 2em;
+  margin-bottom: 15px;
+}
 
-        .aviso-contenido p {
-            font-size: 1.2em; /* Un poco más grande */
-            margin: 10px 0;
-        }
+.aviso-contenido p {
+  font-size: 1.1em;
+  margin: 10px 0;
+}
 
-        .boton-rifa {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 14px 28px; /* Un poco más grande */
-            background-color: white;
-            color: #ff6f00;
-            font-weight: bold;
-            border-radius: 30px;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
+.boton-rifa {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: white;
+  color: #9c27b0;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
 
-        .boton-rifa:hover {
-            background-color: #ffe0b2; /* Tono más claro al pasar el ratón */
-        }
+.boton-rifa:hover {
+  background-color: #f1e4f9;
+}
 
         </style>
 </head>
@@ -576,18 +604,18 @@
     </nav>
 
     <header>
- 
         <section class="aviso-rifa">
-          <div class="aviso-contenido">
-            <h2>¡Gran Rifa del Día del Padre!</h2>
-            <p>Participá por increíbles premios: un set matero, un kit de desayuno y una camiseta firmada trucha.</p>
-            <p>¡Comprá tu número desde $500 y ayudanos a recaudar fondos para el Festi 2025!</p>
-            <a href="rifas-y-sorteos.html" class="boton-rifa">Ver más y comprar</a>
-          </div>
-        </section>
+  <div class="aviso-contenido">
+    <h2>¡Gran Rifa del Día del Padre!</h2>
+    <p>Participá por increíbles premios: un set matero, un kit de desayuno y una camiseta firmada trucha.</p>
+    <p>¡Comprá tu número desde $500 y ayudanos a recaudar fondos para el Festi 2025!</p>
+    <a href="rifa.html" class="boton-rifa">Ver más y comprar</a>
+    <a href="rifas-y-sorteos.html" class="boton-rifa">Ver más y comprar</a>
+  </div>
+</section>
 
-        <img src="galeria/1.jpg">
-        
+        <img src="html/logo-festi-removebg-preview-pica.png" alt="Logo del Festi 2025" />
+        <h1>¡Bienvenidos al Festi 2025!</h1>
     </header>
 
     <div class="main-content">
@@ -615,7 +643,7 @@
         </section>
 
         <div class="que-espera">
-            <h3 style="color: #2e8b57;">¿Qué te espera?</h3>
+            <h3 style="color: #ff4de3;">¿Qué te espera?</h3>
             <ul>
                 <li>🎤 Bandas en vivo y artistas invitados</li>
                 <li>🍔 Patio de comidas</li>
@@ -626,16 +654,16 @@
         </div>
 
         <div class="info-festi">
-            <h2 style="color: #2e8b57;">¿Qué es el Festi?</h2>
-            <p>El Festi es una celebración de la creatividad estudiantil, un espacio donde la música, el arte y la comunidad se unen para crear un día inolvidable. Es una oportunidad para que los estudiantes muestren sus talentos, disfruten de buena compañía y vivan momentos únicos.</p>
-            <p>Prepárense para un día lleno de energía, color y mucha alegría. ¡El Festi 2025 promete ser épico!</p>
+            <h2>¿</h2>
+            <p>¿</p>
+            <p></p>
         </div>
     </div>
 
 
     <section class="spotify-playlist">
         <h2>¡Escuchá la playlist del Festi!</h2>
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1G5mCpcZACGaIjo8wP7BPp?utm_source=generator" width="100%" height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1G5mCpcZACGaIjo8wP7BPp?utm_source=generator" width="100%" height="250" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </section>
 
     <button id="activarSonido">🔊 Activar sonido</button>
